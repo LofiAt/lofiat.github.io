@@ -75,12 +75,12 @@ var mystery = [
   ['Lofi keyboard','https://www.youtube.com/embed/cbuZfY2S2UQ?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@yanu_']
 ];
 
-// var cafe = [
-//   ['Sarutahiko coffee','https://www.youtube.com/embed/qMHbh6XmgwM?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@Jun\'s Cafe Stroll'],
-//   ['Study with KharmaMedic','https://www.youtube.com/embed/fJP7c8xt1n4?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@StudyMD'],
-//   ['Study with Sebastian','https://www.youtube.com/embed/CPIi6JEUufU?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@StudyMD'],
-//   ['Study with Abao','https://www.youtube.com/embed/grBFMP3HDZA?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@StudyMD']
-// ];
+var cafe = [
+  ['Sarutahiko coffee','https://www.youtube.com/embed/qMHbh6XmgwM?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@Jun\'s Cafe Stroll'],
+  ['Study with KharmaMedic','https://www.youtube.com/embed/fJP7c8xt1n4?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@StudyMD'],
+  ['Study with Sebastian','https://www.youtube.com/embed/CPIi6JEUufU?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@StudyMD'],
+  ['Study with Abao','https://www.youtube.com/embed/grBFMP3HDZA?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@StudyMD']
+];
 
 var games = [
   ['City of Gamers','https://www.youtube.com/embed/FFfdyV8gnWk?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@DeepShot'],
@@ -89,12 +89,12 @@ var games = [
   ['EVE space city','https://www.youtube.com/embed/nJ38P5elTkg?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@Selcuk Celebi']
 ];
 
-// var celebrity = [
-//   ['Study with StudyMD','https://www.youtube.com/embed/MrkPc_mFQWU?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@StudyMD'],
-//   ['Study with KharmaMedic','https://www.youtube.com/embed/fJP7c8xt1n4?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@StudyMD'],
-//   ['Study with Sebastian','https://www.youtube.com/embed/CPIi6JEUufU?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@StudyMD'],
-//   ['Study with Abao','https://www.youtube.com/embed/grBFMP3HDZA?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@StudyMD']
-// ];
+var celebrity = [
+  ['Study with StudyMD','https://www.youtube.com/embed/MrkPc_mFQWU?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@StudyMD'],
+  ['Study with KharmaMedic','https://www.youtube.com/embed/fJP7c8xt1n4?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@StudyMD'],
+  ['Study with Sebastian','https://www.youtube.com/embed/CPIi6JEUufU?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@StudyMD'],
+  ['Study with Abao','https://www.youtube.com/embed/grBFMP3HDZA?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@StudyMD']
+];
 
 var snow = [
   ['Relaxing Snowfall','https://www.youtube.com/embed/vz91QpgUjFc?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@Relaxing Sounds Of Nature'],
@@ -110,11 +110,11 @@ var city = [
   ['Night City View','https://www.youtube.com/embed/Ho7a8rpufHg?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@Planet Calm']
 ];
 
-// var pets = [
-//   ['Relax with my dog','https://www.youtube.com/embed/aKVBZpJgY0A?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@Fall In Chill'],
-//   ['Study with KharmaMedic','https://www.youtube.com/embed/fJP7c8xt1n4?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@StudyMD'],
-//   ['Relax with my cat','https://www.youtube.com/embed/GrG2-oX5z24?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@Fall in Chill']
-// ];
+var pets = [
+  ['Relax with my dog','https://www.youtube.com/embed/aKVBZpJgY0A?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@Fall In Chill'],
+  ['Study with KharmaMedic','https://www.youtube.com/embed/fJP7c8xt1n4?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@StudyMD'],
+  ['Relax with my cat','https://www.youtube.com/embed/GrG2-oX5z24?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@Fall in Chill']
+];
 
 var beach = [
   ['Tropical Beach','https://www.youtube.com/embed/BNTs6-pNFRk?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1','@NatureZilla'],
