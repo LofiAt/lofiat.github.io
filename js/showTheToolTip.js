@@ -12,7 +12,7 @@ function showTooltip(e) {
           : (document.body.clientHeight + 5 - tooltip.clientHeight + "px");
 }
 
-var tooltips = document.querySelectorAll('.shuffleCategoryButton');
+var tooltips = document.querySelectorAll('.shuffleCategoryWrapper');
 for(var i = 0; i < tooltips.length; i++) {
   tooltips[i].addEventListener('mousemove', showTooltip);
 }
