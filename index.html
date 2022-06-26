@@ -3,9 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="google-signin-client_id" content="453176867754-kqls0uodm9g4lvi4tuk21aahnd2gqqaj.apps.googleusercontent.com">
         <title>DarkUx Spaces</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
         <link rel="stylesheet" href="/css/baseStyles.css">
         <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/compass_1f9ed.png">
         <script src="https://unpkg.com/feather-icons"></script>
@@ -22,7 +24,9 @@
         <script src="/js/iFrameVideo.js" defer></script>
         <script src="/js/pomodoroTimer.js" defer></script>
         <script src="/js/showTheToolTip.js" defer></script>
+        <script src="/js/saveSpaces.js" defer></script>
         <script src="/js/changeObjects.js" defer></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
     </head>
     <body onload="loadingScreen(); getTime(); vidTitle(); playRandomVideo(); playAudio();">
 
@@ -37,10 +41,20 @@
             </div>
         </div>
 
+        <div id="signInOrCreate">
+            <div id="signInOrCreateHeader" >
+                <div id="signInOrCreateTitle">Sign In or Create Account</div>
+            <span id="closeSignInOrCreate" onclick="closeThisObject('signInOrCreate')"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
+            </div>
+            <div id="signInOptions">
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            </div>
+        </div>
+
         <div id="importantDarkUxInformation">
-            <div id="darkuxButton"><a href="home.html" target="_blank">DarkUx</a></div>
+            <div id="darkuxButton"><a href="/html/home.html" target="_blank">DarkUx</a></div>
             <div id="spacesRoomInformation">
-                <span id="theSpaceName">adrian.td's Room</span>
+                <span id="theSpaceName">My Room</span>
                 <span id="dividingLine"></span>
                 <span id="inviteLink" onclick="openThisObject('inviteFriendsToSpace'); closeThisObject('userInformationMenu')">Invite</span>
             </div>
@@ -53,7 +67,7 @@
 
         <div id="userInformation" onclick="changeThisObject('userInformationMenu')"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></div>
         <div id="userInformationMenu">
-            <div class="userInformationMenuOptions" id="myAccount">My Account </div>
+            <div class="userInformationMenuOptions" id="myAccount" onclick="changeThisObject('signInOrCreate')">My Account </div>
             <div class="userInformationMenuOptions" id="appearance">Appearance</div>
             <div class="userInformationMenuOptions" id="darkUxDiscord">DarkUx Discord</div>
             <div class="userInformationMenuOptions" id="aboutUs">About Us</div>
@@ -62,7 +76,7 @@
             <div class="userInformationMenuOptions" id="terms">Terms</div>
             <div id="darkUxSocialLinks">
                 <a href="https://www.instagram.com/adrian.td/" target="_blank" class="socialLinksForDarkUx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-                <a href="" target="_blank" class="socialLinksForDarkUx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                <a href="https://twitter.com/adriantdoav" target="_blank" class="socialLinksForDarkUx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
                 <a href="" target="_blank" class="socialLinksForDarkUx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a>
                 <a href="" target="_blank" class="socialLinksForDarkUx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
             </div>
@@ -129,7 +143,7 @@
                     <div id="spaceIndicator">
                         <div id="spaceNameText"></div>
                         <div id="playList" onclick="changeThisObject('popUpPlayListSection')"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-archive"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg></div>
-                        <div id="saveSpace" onclick="changeColour()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d68e7f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div>
+                        <div id="saveSpace" onclick="changeColour(); saveTheSpace()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d68e7f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div>
                         </br>
                         <div id="shareSpaceLinkButton"><a href="#" id="shareSpaceLinkButtonText">Share Space ⟶</a></div>
                     </div>
@@ -152,9 +166,10 @@
                 </div>
                 <div id="spacesSideBarContent"></div>
                 <div id="spacesSideBarFooterButtons">
-                    <div id="faqLinkButton"><a href="#" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-help-circle"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></a></div>
                     <div id="showCaseButton"><a href="#" target="_blank">🎥 Showcase</a></div>
+                    <div id="faqLinkButton"><a href="#" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-help-circle"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></a></div>
                     <div id="shareDarkUxButton"><a href="#" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></a></div>
+                    <div id="notifications"><a href="#" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></a></div>
                 </div>
             </div>
             <div id="sideBarTabClosed" onclick="openThisObject('spacesContent'); sideSetToOpen(); moveImportantDarkUxInformation()"><svg width="26" height="42" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h21a5 5 0 015 5v32a5 5 0 01-5 5H0V0z" fill="#3C4551"></path><path d="M17.744 21.64a.778.778 0 000-1.28l-6.607-4.576a.778.778 0 00-1.22.639v9.154c0 .628.704.997 1.22.64l6.607-4.578z" fill="#fff"></path></svg></div>
@@ -164,7 +179,14 @@
                 <div id="popUpPlayList">
                     <div id="popUpPlayListHeader">My Favourite Spaces</div>
                     <div id="savedSpaces">
-                        <div class="favouriteSpaceWrapper" draggable="true"><div class="spacesNameInList"><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/face-with-monocle_1f9d0.png" alt="An emoji for CODE space category.">Colourful Bubbles</div><span class="removeTheSavedSpace"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span></div>
+                        <div class="favouriteSpaceWrapper" draggable="true">
+                            <div class="spacesNameInList"><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/face-with-monocle_1f9d0.png" alt="An emoji for CODE space category."><div class="favouriteSpaceName">Colourful Bubbles</div></div>
+                            <span class="removeTheSavedSpace" onclick="deleteSavedSpace()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
+                        </div>
+                        <div class="favouriteSpaceWrapper" draggable="true">
+                            <div class="spacesNameInList"><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/ringed-planet_1fa90.png" alt="An emoji for CODE space category."><div class="favouriteSpaceName">Low Lunar Orbit</div></div>
+                            <span class="removeTheSavedSpace" onclick="deleteSavedSpace()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -175,10 +197,12 @@
                 <div id="musicHandle"><div id="mainTitle">Music</div></div>
                 <div id="close" onclick="closeThisObject('musicInfo')";><button class="minimise"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div>
             </div>
-            <iframe style="border-radius:0px;width: 100%;height: 170px;" src="https://open.spotify.com/embed/playlist/3BagbZs5aHeJke8kQqyomJ?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-            <div id="changeTheMusicPlayList"><input type="text" placeholder="Enter Spotify Playlist URL" id="changeTheMusicPlayListInput"></div>
-            <div id="saveNewPlayList">Save</div>
-            <div id="resetToOriginalPlayList"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rotate-cw"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg></div>
+            <iframe width="100%" height="100%" style="border-radius:0px;width: 100%;height: 100%;" src="https://open.spotify.com/embed/playlist/3BagbZs5aHeJke8kQqyomJ?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            <div id="musicChange">
+                <div id="changeTheMusicPlayList"><input type="text" placeholder="Enter Spotify Playlist URL" id="changeTheMusicPlayListInput"></div>
+                <div id="resetToOriginalPlayList"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rotate-cw"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg></div>
+                <div id="saveNewPlayList">Save</div>
+            </div>
         </div>
 
         <div id="notesInfo">
@@ -296,10 +320,10 @@
 
         <div id="loadingScreen">
             <div id="loadingScreenText">LOADING...</div>
-            <img id="loadingScreenGif" src="https://venturebeat.com/wp-content/uploads/2014/10/loading_desktop_by_brianmccumber-d41z4h6.gif?w=1200&strip=all"/>
+            <img id="loadingScreenGif" src="/gifs/anotherloadingPendulum.gif"/>
         </div>
 
-        <div id="virtualSpaces" onclick="closeThisObject('inviteFriendsToSpace'); closeThisObject('userInformationMenu')">
+        <div id="virtualSpaces" onclick="closeThisObject('inviteFriendsToSpace'); closeThisObject('userInformationMenu'); closeThisObject('signInOrCreate')">
             <div id="embed">
                 <iframe id="spaceVideo" src="https://www.youtube.com/embed/RhlQvbvMg-0?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1&mute=1" title=""></iframe>
             </div>
