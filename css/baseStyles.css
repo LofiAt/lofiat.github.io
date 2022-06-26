@@ -49,8 +49,9 @@
 }
 
 #musicInfo {
-    width: 280px;
-    height: 250px;
+    min-width: 360px;
+    min-height: 158px;
+    resize: both;
 }
 
 #quoteInfo {
@@ -85,6 +86,7 @@
     width: 320px;
     height: 36px;
     cursor: move;
+    width: 100%;
     z-index: 2001;
     background: #232931;
 }
@@ -142,7 +144,7 @@
 
 #notesInput {
     width: calc(100% - 20px);
-    height: 100%;
+    height: calc(100% - 50px);
     margin: 10px;
     background-color: #232931;
     outline: none;
@@ -308,7 +310,7 @@
 
 #spacesRoomInformation {
     position: absolute;
-    width: 193px;
+    width: auto;
     line-height: 36px;
     border-radius: 8px;
     margin-top: 8px;
@@ -663,12 +665,13 @@
     text-align: center;
     background-color: #232931;
     border: 1.5px solid #515151;
-    float: right;
+    float: left;
     cursor: pointer;
-    margin-right: 10px;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
-#faqLinkButton, #shareDarkUxButton {
+#faqLinkButton, #shareDarkUxButton, #notifications {
     font-size: 16px;
     width: 46px;
     height: 36px;
@@ -676,10 +679,15 @@
     background-color: #232931;
     text-align: center;
     border: 1.5px solid #515151;
-    float: right;
+    float: left;
     line-height: 36px;
     cursor: pointer;
-    margin-right: 10px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#notifications {
+    width: 30px;
 }
 
 #savedSpaces {
@@ -687,7 +695,7 @@
     margin: 12px;
 }
 
-#inviteFriendsToSpace {
+#inviteFriendsToSpace, #signInOrCreate {
     position: fixed;
     display: none;
     width: 360px;
@@ -705,16 +713,16 @@
     float: left;
 }
 
-#inviteFriendsToSpaceHeader {
+#inviteFriendsToSpaceHeader, #signInOrCreateHeader {
     padding-right: 10px;
     padding-left: 20px;
 }
 
-#inviteFriendsToSpaceTitle {
+#inviteFriendsToSpaceTitle, #signInOrCreateTitle {
     font-size: 22px;
 }
 
-#closeInviteFriendsToSpace {
+#closeInviteFriendsToSpace, #closeSignInOrCreate {
     float: right;
     cursor: pointer;
     height: 35px;
@@ -723,6 +731,23 @@
 
 #roomSettings {
     padding: 20px;
+}
+
+#signInOptions {
+    width: 50%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.g-signin2 {
+    justify-content: center;
+    position: absolute;
+    text-align: center;
+    border-radius: 8px;
+    margin: 20px;
 }
 
 #roomNameTitle {
@@ -755,6 +780,15 @@
     margin-right: 40px;
 }
 
+#musicChange {
+    width: 100%;
+    height: 35px;
+    padding-top: 5px;
+    background-color: #232931;
+    position: absolute;
+    bottom: 0;
+}
+
 #changeTheMusicPlayList {
     margin-left: 16px;
     font-size: 14px;
@@ -773,7 +807,7 @@
 }
 
 #saveNewPlayList {
-    float: left;
+    float: right;
     cursor: pointer;
     margin: 8px;
     font-size: 14px;
@@ -781,6 +815,8 @@
 
 #resetToOriginalPlayList {
     margin-top: 5px;
+    padding-right: 16px;
+    float: right;
     cursor: pointer;
 }
 
@@ -899,8 +935,23 @@
     width: 100vw;
 }
 
+[draggable=true] {
+    cursor: move;
+}
+
+.favouriteSpaceWrapper {
+    margin-bottom: 5px;
+}
+
+.favouriteSpaceName {
+    margin-top: -26px;
+    margin-left: 40px;
+    color: white;
+}
+
 .space-category-icon {
     width: 30px;
+    margin-top: 4px;
     height: 30px;
 }
 
@@ -917,6 +968,7 @@
 
 .favouriteSpaceWrapper {
     float: left;
+    border-radius: 8px;
     background-color: transparent;
 }
 
@@ -927,6 +979,7 @@
     padding-left: 20px;
     border-radius: 8px;
     border: 1.5px solid #e9e9e9;
+    background-color: transparent;
     float: left;
     cursor: grab;
 }
@@ -934,6 +987,7 @@
 .removeTheSavedSpace {
     float: right;
     cursor: pointer;
+    background-color: transparent;
     margin-top: -38px;
     margin-right: 0px;
 }
@@ -1133,10 +1187,14 @@
     justify-content: space-around;
 }
 
-.feather-help-circle, .feather-share-2 {
+.feather-help-circle, .feather-share-2, .feather-alert-circle {
     width: 18px;
     height: 18px;
     margin: 9px;
+}
+
+.feather-alert-circle {
+    margin-left: 6px;
 }
 
 .feather-x {
