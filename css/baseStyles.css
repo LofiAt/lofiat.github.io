@@ -1,5 +1,6 @@
 /*FONTS*/
 @import url('https://fonts.cdnfonts.com/css/circular-std');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
 
 * {
     color: #fff;
@@ -912,14 +913,14 @@
 
 #loadingScreenText {
     position: absolute;
+    font-family: 'Silkscreen', cursive;
     color: #000;
     font-size: 60px;
     text-align: center;
     z-index: 2002;
-    top: 50%;
     right: 0px;
     align-items: center;
-    margin-top: calc(100vh - 550px);
+    margin-top: calc(100vh - 90px);
 }
 
 #errorPageLarge {
@@ -1321,6 +1322,3 @@
 /* #musicIconSvg, #notesIconSvg, #quoteIconSvg, #spacesIconSvg, #soundsIconSvg, #timerIconSvg {
     stroke: #fff;
 }*/
-
-
-  
