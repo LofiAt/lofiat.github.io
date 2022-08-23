@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="google-signin-client_id" content="453176867754-kqls0uodm9g4lvi4tuk21aahnd2gqqaj.apps.googleusercontent.com">
+        <title>DarkUx Spaces</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <link rel="stylesheet" href="/css/baseStyles.css">
+        <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/compass_1f9ed.png">
+        <script src="https://unpkg.com/feather-icons"></script>
+        <script src="https://kit.fontawesome.com/2604730bf5.js" crossorigin="anonymous"></script>
+        <script src="/js/moveObjects.js" defer></script>
+        <script src="/js/fullscreen.js" defer></script>
+        <script src="/js/carousel.js" defer></script>
+        <script src="/js/svgColour.js" defer></script>
+        <script src="/js/audio.js" defer></script>
+        <script src="/js/quotes.js" defer></script>
+        <script src="js/cookies.js" defer></script>
+        <script src="/js/loading.js" defer></script>
+        <script src="/js/theTime.js" defer></script>
+        <script src="/js/iFrameVideo.js" defer></script>
+        <script src="/js/pomodoroTimer.js" defer></script>
+        <script src="/js/showTheToolTip.js" defer></script>
+        <script src="/js/saveSpaces.js" defer></script>
+        <script src="/js/changeObjects.js" defer></script>
+        <script src="/js/copy.js" defer></script>
+        <script src="/js/signIn.js" defer></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+    </head>
+    <body onload="loadingScreen(); getTime(); vidTitle(); playRandomVideo(); playAudio();">
+
+        <div id="inviteFriendsToSpace" class="popUp">
+            <div class="popUpHeader" >
+                <div class="popUpTitle">Invite Friends</div>
+            <span class="closePopUp" onclick="closeThisObject('inviteFriendsToSpace'); changeRoomTitle()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
+            </div>
+            <div id="roomSettings">
+                <div id="roomNameTitle">Room Name</div>
+                <div id="changeRoomName"><input type="text" maxlength="17" id="changeRoomNameInput" placeholder="Room Name"/></div>
+            </div>
+        </div>
+
+        <div id="signInOrCreate" class="popUp">
+            <div class="popUpHeader">
+                <div class="popUpTitle">Sign In or Create Account</div>
+            <span class="closePopUp" onclick="closeThisObject('signInOrCreate')"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
+            </div>
+            <div id="signInOptions">
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            </div>
+        </div>
+
+        <div id="share" class="popUp">
+            <div class="popUpHeader">
+                <div class="popUpTitle">Share with others</div>
+            <span class="closePopUp" onclick="closeThisObject('share')"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
+            </div>
+        </div>
+
+        <div id="importantDarkUxInformation">
+            <a href="home.html" id="darkuxButton">DarkUx</a>
+            <div id="spacesRoomInformation">
+                <span id="theSpaceName">My Room</span>
+                <span id="dividingLine"></span>
+                <span id="inviteLink" onclick="openThisObject('inviteFriendsToSpace'); closeThisObject('userInformationMenu'); closeThisObject('signInOrCreate'); closeThisObject('share');">Invite</span>
+            </div>
+        </div>
+
+        <div id="otherOptions">
+            <div id="streaksInfo">1 🔥</div>
+            <span id="dividingLine" class="otherOptionsDivider2"></span>
+            <div id="volumeStateToggleOtherOptions"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-2 otherOptionsVolume"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg></div>
+            <div id="shareWebsiteLink" onclick="changeThisObject('share'); closeThisObject('signInOrCreate'); closeThisObject('inviteFriendsToSpace');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg></div>
+            <div id="windowSize">
+                <div id="shrinkWindowButton" onclick="closeFullscreen();"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minimize-2"><polyline points="4 14 10 14 10 20"></polyline><polyline points="20 10 14 10 14 4"></polyline><line x1="14" y1="10" x2="21" y2="3"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></div>
+                <div id="expandWindowButton" onclick="openFullscreen();"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize-2"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></div>
+            </div>
+            <span id="dividingLine" class="otherOptionsDivider1"></span>
+            <div id="userInformation" onclick="changeThisObject('userInformationMenu')"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></div>
+        </div>
+
+        <div id="userInformationMenu">
+            <div class="userInformationMenuOptions" id="myAccount" onclick="changeThisObject('signInOrCreate'); closeThisObject('inviteFriendsToSpace'); closeThisObject('share');">My Account </div>
+            <div class="userInformationMenuOptions" id="appearance">Appearance</div>
+            <div class="userInformationMenuOptions" id="darkUxDiscord" onclick="window.open('https://discord.gg/sfEkz5aZW7', '_blank')">DarkUx Discord</div>
+            <div class="userInformationMenuOptions" id="aboutUs">About Us</div>
+            <div class="userInformationMenuOptions" id="feedBack">Feedback</div>
+            <div class="userInformationMenuOptions" id="privacy">Privacy</div>
+            <div class="userInformationMenuOptions" id="terms">Terms</div>
+            <div id="darkUxSocialLinks">
+                <a href="https://www.instagram.com/adrian.td/" target="_blank" class="socialLinksForDarkUx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                <a href="https://twitter.com/adriantdoav" target="_blank" class="socialLinksForDarkUx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                <a href="" target="_blank" class="socialLinksForDarkUx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a>
+                <a href="" target="_blank" class="socialLinksForDarkUx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
+            </div>
+        </div>
+
+        <div id="spacesMenu">
+            <div id="spacesContent">
+                <div id="darkuxInfoButton"><a href="home.html" target="_blank">Explore 🔎</a></div>
+                <div id="currentTime"></div>
+                <div id="shufflerHeader">
+                    <div id="shuffleSpaces">
+                        <div id="shuffleSpacesTitle">Shuffle Spaces</div>
+                        <sup><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></sup>
+                    </div>
+                    <div id="shufflerControl">
+                        <div id="moveSelectionLeft" onclick="moveCarouselLeft()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg></div>
+                        <div id="moveSelectionRight" onclick="moveCarouselRight()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+                    </div>
+                </div>
+                <div id="shufflerDescription">Click an emoji multiple times for more content</div>
+                <div id="spacesCategoriesCarousel">
+                    <div class="carouselRow">
+                        <div class="shuffleCategoryWrapper">
+                            <div class="shuffleCategoryButton" onclick="getVideoInformation(beach); setSoundIconToDefault(); loadingScreen();"><span class="darkUxToolTip">Beach</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/beach-with-umbrella_1f3d6-fe0f.png" alt="An emoji for CODE space category."></div>
+                        </div>
+                        <div class="shuffleCategoryWrapper">
+                            <div class="shuffleCategoryButton" onclick="getVideoInformation(code); setSoundIconToDefault(); loadingScreen();"><span class="darkUxToolTip">Code</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/laptop_1f4bb.png" alt="An emoji for CODE space category."></div>
+                        </div>
+                        <div class="shuffleCategoryWrapper">
+                            <div class="shuffleCategoryButton" onclick="getVideoInformation(celebrity); setSoundIconToDefault(); loadingScreen();"><span class="darkUxToolTip">Celebrity</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/microphone_1f3a4.png" alt="An emoji for CODE space category."></div>
+                        </div>
+                        <div class="shuffleCategoryWrapper">
+                            <div class="shuffleCategoryButton" onclick="getVideoInformation(mystery); setSoundIconToDefault(); loadingScreen();"><span class="darkUxToolTip">Mystery</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/face-with-monocle_1f9d0.png" alt="An emoji for CODE space category."></div>
+                        </div>
+                        <div class="shuffleCategoryWrapper">
+                            <div class="shuffleCategoryButton" onclick="getVideoInformation(study); setSoundIconToDefault(); loadingScreen();"><span class="darkUxToolTip">Study With Me</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/woman-technologist_1f469-200d-1f4bb.png" alt="An emoji for CODE space category."></div>
+                        </div>
+                        <div class="shuffleCategoryWrapper">
+                            <div class="shuffleCategoryButton" onclick="getVideoInformation(walk); setSoundIconToDefault(); loadingScreen();"><span class="darkUxToolTip">Walk</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/person-walking_1f6b6.png" alt="An emoji for CODE space category."></div>
+                        </div>
+                        <div class="shuffleCategoryWrapper">
+                            <div class="shuffleCategoryButton" onclick="getVideoInformation(snow); setSoundIconToDefault(); loadingScreen();"><span class="darkUxToolTip">Snow</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/snowman_2603-fe0f.png" alt="An emoji for CODE space category."></div>
+                        </div>
+                    </div>
+                    <div class="carouselRow">
+                        <div class="shuffleCategoryWrapper">
+                            <div class="shuffleCategoryButton" onclick="getVideoInformation(windows); setSoundIconToDefault(); loadingScreen();"><span class="darkUxToolTip">Window</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/window_1fa9f.png" alt="An emoji for CODE space category."></div>
+                        </div>
+                        <div class="shuffleCategoryWrapper">
+                            <div class="shuffleCategoryButton" onclick="getVideoInformation(space); setSoundIconToDefault(); loadingScreen();"><span class="darkUxToolTip">Space</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/ringed-planet_1fa90.png" alt="An emoji for CODE space category."></div>
+                        </div>
+                        <div class="shuffleCategoryWrapper">
+                            <div class="shuffleCategoryButton" onclick="getVideoInformation(cafe); setSoundIconToDefault(); loadingScreen();"><span class="darkUxToolTip">Cafe</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/hot-beverage_2615.png" alt="An emoji for CODE space category."></div>
+                        </div>
+                        <div class="shuffleCategoryWrapper">
+                            <div class="shuffleCategoryButton" onclick="getVideoInformation(art); setSoundIconToDefault(); loadingScreen();"><span class="darkUxToolTip">Art</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/artist-palette_1f3a8.png" alt="An emoji for CODE space category."></div>
+                        </div>
+                        <div class="shuffleCategoryWrapper">
+                            <div class="shuffleCategoryButton" onclick="getVideoInformation(pets); setSoundIconToDefault(); loadingScreen();"><span class="darkUxToolTip">Pets</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/cat_1f408.png" alt="An emoji for CODE space category."></div>
+                        </div>
+                        <div class="shuffleCategoryWrapper">
+                            <div class="shuffleCategoryButton" onclick="getVideoInformation(games); setSoundIconToDefault(); loadingScreen();"><span class="darkUxToolTip">Games</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/joystick_1f579-fe0f.png" alt="An emoji for CODE space category."></div>
+                        </div>
+                        <div class="shuffleCategoryWrapper">
+                            <div class="shuffleCategoryButton" onclick="getVideoInformation(city); setSoundIconToDefault(); loadingScreen();"><span class="darkUxToolTip">City</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/cityscape_1f3d9-fe0f.png" alt="An emoji for CODE space category."></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="spacesInfoBlock">
+                    <div id="spaceIndicator">
+                        <div id="spaceNameText"></div>
+                        <div id="playList" onclick="changeThisObject('popUpPlayListSection')"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-archive"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg></div>
+                        <div id="saveSpace" onclick="changeColour(); saveTheSpace()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d68e7f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div>
+                        </br>
+                        <div id="shareSpaceLinkButton" onclick="copy();" aria-label="">Share Space ⟶</div>
+                    </div>
+                    <div id="volumeSliderSection">
+                        <div id="volumeStateToggle" onclick="changeSoundState();"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-x"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></div>
+                        <input type="range" min="0" max="100" value="0" id="volumeSlider" oninput="changeYoutubeVolumeValue(this.value/100);">
+                    </div>
+                </div>
+                <div id="spaceCreatorInfo">
+                    <div id="circle"></div>
+                    <div id="creatorTextContent">
+                        <div id="creatorUserName"><span id="theCreatorUserName">@</span><!--@DarkUx--> <sup><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 10 10" fill="none" class="feather feather-verified-icon"><path fill="#fff" d="M1.875 1.875h6.25v6.25h-6.25z"></path><path fill-rule="evenodd" d="M5 10a5 5 0 003.536-8.536 5 5 0 00-7.072 0A5 5 0 005 10zm2.317-5.808a.62.62 0 00.175-.44.63.63 0 00-.183-.437.624.624 0 00-.437-.183.63.63 0 00-.44.175L4.375 5.366l-.808-.808a.62.62 0 00-.44-.175.63.63 0 00-.437.183.624.624 0 00-.183.437.63.63 0 00.175.44l1.25 1.25a.625.625 0 00.884 0l2.5-2.5z" fill="#127fff"></path></svg></sup></div>
+                        <div id="creatorLinks">
+                            <a href="" target="_blank" id="instagram" class="socialLinksForCreator"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                            <a href="" target="_blank" id="twitter" class="socialLinksForCreator"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                            <a href="" target="_blank" class="socialLinksForCreator"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a>
+                            <a href="" target="_blank" id="twitch" class="socialLinksForCreator"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitch"><path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7"></path></svg></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="spacesSideBarContent"></div>
+                <div id="spacesSideBarFooterButtons">
+                    <div id="desktopApp"><a href="#" target="_blank">Desktop App</a></div>
+                    <div id="showCaseButton"><a href="#" target="_blank">Showcase</a></div>
+                    <div id="faqLinkButton"><a href="#" target="_blank">FAQ</a></div>
+                    <div id="notifications"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></div>
+                </div>
+            </div>
+            <div id="sideBarTabClosed" onclick="openSideBarObject(); sideSetToOpen(); moveImportantDarkUxInformation()"><svg width="26" height="42" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h21a5 5 0 015 5v32a5 5 0 01-5 5H0V0z" fill="#3C4551"></path><path d="M17.744 21.64a.778.778 0 000-1.28l-6.607-4.576a.778.778 0 00-1.22.639v9.154c0 .628.704.997 1.22.64l6.607-4.578z" fill="#fff"></path></svg></div>
+            <div id="sideBarTabOpened" onclick="closeSideBarObject(); sideSetToClose(); moveImportantDarkUxInformation(); closeThisObject('popUpPlayListSection');"><svg width="26" height="42" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h21a5 5 0 015 5v32a5 5 0 01-5 5H0V0z" fill="#3C4551"></path><path d="M7.923 21.64a.778.778 0 010-1.28l6.606-4.576a.778.778 0 011.221.639v9.154a.778.778 0 01-1.22.64l-6.607-4.578z" fill="#fff"></path></svg></div>
+            <div id="popUpPlayListSection">
+                <div id="arrow"></div>
+                <div id="popUpPlayList">
+                    <div id="popUpPlayListHeader">My Favourite Spaces</div>
+                    <div id="savedSpaces">
+                        <div class="favouriteSpaceWrapper" draggable="true">
+                            <div class="spacesNameInList"><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/face-with-monocle_1f9d0.png" alt="An emoji for CODE space category."><div class="favouriteSpaceName">Colourful Bubbles</div></div>
+                            <span class="removeTheSavedSpace" onclick="deleteSavedSpace()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
+                        </div>
+                        <div class="favouriteSpaceWrapper" draggable="true">
+                            <div class="spacesNameInList"><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/ringed-planet_1fa90.png" alt="An emoji for CODE space category."><div class="favouriteSpaceName">Low Lunar Orbit</div></div>
+                            <span class="removeTheSavedSpace" onclick="deleteSavedSpace()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="musicInfo">
+            <div id="mainHeaderSection">
+                <div id="musicHandle"><div id="mainTitle">Music</div></div>
+                <div id="close" onclick="closeThisObject('musicInfo')";><button class="minimise"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div>
+            </div>
+            <iframe width="100%" height="100%" style="border-radius:0px;width: 100%;height: 100%;" src="https://open.spotify.com/embed/playlist/3BagbZs5aHeJke8kQqyomJ?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            <div id="musicChange">
+                <div id="changeTheMusicPlayList"><input type="text" placeholder="Enter Spotify Playlist URL" id="changeTheMusicPlayListInput"></div>
+                <div id="resetToOriginalPlayList"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rotate-cw"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg></div>
+                <div id="saveNewPlayList">Save</div>
+            </div>
+        </div>
+
+        <div id="notesInfo">
+            <div id="mainHeaderSection">
+                <div id="notesHandle"><div id="mainTitle">Notes</div></div>
+                <div id="close" onclick="closeThisObject('notesInfo');"><button class="minimise"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div>
+            </div>
+            <textarea id="notesInput" type="text" placeholder="Type your notes here..."></textarea>
+        </div>
+
+        <div id="timerInfo">
+            <div id="mainHeaderSection">
+                <div id="timerHandle"><div id="mainTitle">Timer</div></div>
+                <div id="close"><button class="minimise" onclick="closeThisObject('timerInfo');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div>
+            </div>
+            <div id="theTimer">
+                <div id="timerState">
+                    <div id="timerValue">
+                        <span id="minutes">20</span>
+                        <span id="colon">:</span>
+                        <span id="seconds">00</span>
+                    </div>
+                    <span id="resetTimer" onclick="resetValues()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rotate-cw"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg></span>
+                    <div id="timerStartStop" value="start" onclick="timeBegins(); nameChange()">Start</div>
+                </div>
+                <div id="pomodoro" class="timerTitle activeTimer" onclick="pomodoro()">Pomodoro</div>
+                <div id="shortBreak" class="timerTitle" onclick="shortBreak()">Short Break</div>
+                <div id="longBreak" class="timerTitle" onclick="longBreak()">Long Break</div>
+                <span id="timerSettings"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></span>
+            </div>
+        </div>
+
+        <div id="quoteInfo">
+            <div id="mainHeaderSection">
+                <div id="quoteHandle"><div id="mainTitle">Quote</div></div>
+                <div id="close"><button class="minimise" onclick="closeThisObject('quoteInfo');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div>
+            </div>
+            <h3 id="todaysQuote"></h3>
+        </div>
+
+        <div id="soundsInfo">
+            <div id="mainHeaderSection">
+                <div id="soundsHandle"><div id="mainTitle">Soundboard</div></div>
+                <div id="close" onclick="closeThisObject('soundsInfo')";><button class="minimise"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div>
+                <div class="volumeStateToggleForUserAudio" id="muteAll" onclick="changeSoundStateForAudio('muteAll'); muteAll();"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-x"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></div>
+                </div>
+            <div id="availableSounds">
+                <div class="audioSource">
+                    <div class="audioTitle">Cafe</div>
+                    <audio class="soundsForUser" autoplay="autoplay" loop="loop" id="cafeAudio" muted ="true" controls><source src="http://soundbible.com/grab.php?id=1664&type=mp3"></audio>
+                    <div class="volumeStateToggleForUserAudio" id="cafeMuteUnmute" onclick="changeMuteOrUnmute('cafeAudio'); changeSoundStateForAudio('cafeMuteUnmute');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-x"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></div>
+                    <input type="range" min="0" max="100" value="0" class="volumeSliderForUserAudio" oninput="unmuteOnMove('cafeAudio','cafeMuteUnmute'); changeVolumeValue(this.value/100, 'cafeAudio', 'cafeMuteUnmute');">
+                </div>
+
+                <div class="audioSource">
+                    <div class="audioTitle">Fireplace</div>
+                    <audio class="soundsForUser" autoplay="autoplay" loop="loop" id="firePlaceAudio" muted ="true" controls><source src="http://soundbible.com/grab.php?id=2178&type=mp3"></audio>
+                    <div class="volumeStateToggleForUserAudio" id="firePlaceMuteUnmute" onclick="changeMuteOrUnmute('firePlaceAudio'); changeSoundStateForAudio('firePlaceMuteUnmute');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-x"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></div>
+                    <input type="range" min="0" max="100" value="0" class="volumeSliderForUserAudio" oninput="unmuteOnMove('firePlaceAudio','firePlaceMuteUnmute'); changeVolumeValue(this.value/100, 'firePlaceAudio', 'firePlaceMuteUnmute');">
+                </div>
+
+                <div class="audioSource">
+                    <div class="audioTitle">Lava</div>
+                    <audio class="soundsForUser" autoplay="autoplay" loop="loop" id="lavaAudio" muted ="true" controls><source src="/audio/zapsplat_nature_lava_flow_17940.mp3"></audio>
+                    <div class="volumeStateToggleForUserAudio" id="lavaMuteUnmute" onclick="changeMuteOrUnmute('lavaAudio'); changeSoundStateForAudio('lavaMuteUnmute');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-x"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></div>
+                    <input type="range" min="0" max="100" value="0" class="volumeSliderForUserAudio" oninput="unmuteOnMove('lavaAudio','lavaMuteUnmute'); changeVolumeValue(this.value/100, 'lavaAudio', 'lavaMuteUnmute');">
+                </div>
+
+                <div class="audioSource">
+                    <div class="audioTitle">Ocean</div>
+                    <audio class="soundsForUser" autoplay="autoplay" loop="loop" id="oceanAudio" muted ="true" controls><source src="http://soundbible.com/grab.php?id=1936&type=mp3"></audio>
+                    <div class="volumeStateToggleForUserAudio" id="oceanMuteUnmute" onclick="changeMuteOrUnmute('oceanAudio'); changeSoundStateForAudio('oceanMuteUnmute');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-x"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></div>
+                    <input type="range" min="0" max="100" value="0" class="volumeSliderForUserAudio" oninput="unmuteOnMove('oceanAudio','oceanMuteUnmute'); changeVolumeValue(this.value/100, 'oceanAudio', 'oceanMuteUnmute');">
+                </div>
+                
+                <div class="audioSource">
+                    <div class="audioTitle">Rain</div>
+                    <audio class="soundsForUser" autoplay="autoplay" loop="loop" id="rainAudio" muted ="true" controls><source src="http://soundbible.com/grab.php?id=1908&type=mp3"></audio>
+                    <div class="volumeStateToggleForUserAudio" id="rainMuteUnmute" onclick="changeMuteOrUnmute('rainAudio'); changeSoundStateForAudio('rainMuteUnmute');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-x"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></div>
+                    <input type="range" min="0" max="100" value="0" class="volumeSliderForUserAudio" oninput="unmuteOnMove('rainAudio','rainMuteUnmute'); changeVolumeValue(this.value/100, 'rainAudio', 'rainMuteUnmute');">
+                    <div id="volumeValue"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="toolBar">
+            <div id="toolBarTitle">TOOLS</div>
+            <div id="toolBarData">
+                <div id="notesIcon" onclick="changeThisObject('notesInfo'); highlighted('notesIcon'); changeThisIconColour('notesIconSvg'); changeThisTitleColour('notesToolBarTitle');">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="notesIconSvg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text toolsIcons"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    <p class="toolBarTitles" id="notesToolBarTitle">Notes</p>
+                </div>
+                <div id="musicIcon" onclick="changeThisObject('musicInfo'); highlighted('musicIcon'); changeThisIconColour('musicIconSvg');">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="musicIconSvg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-speaker toolsIcons"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><circle cx="12" cy="14" r="4"></circle><line x1="12" y1="6" x2="12.01" y2="6"></line></svg>
+                    <p class="toolBarTitles">Music</p>
+                </div>
+                <div id="timerIcon" onclick="changeThisObject('timerInfo'); highlighted('timerIcon');">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="timerIconSvg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock toolsIcons"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <p class="toolBarTitles">Timer</p>
+                </div>
+                <div id="soundsIcon" onclick="changeThisObject('soundsInfo'); highlighted('soundsIcon');">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="soundsIconSvg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sliders toolsIcons"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+                    <p class="toolBarTitles">Sounds</p>
+                </div>
+                <div id="quoteIcon" onclick="changeThisObject('quoteInfo'); highlighted('quoteIcon');">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="quoteIconSvg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book-open toolsIcons"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                    <p class="toolBarTitles">Quote</p>
+                </div>
+                <div id="spacesIcon" onclick="changeThisSpacesObject(); moveImportantDarkUxInformation(); changeThisIcon()">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="spacesIconSvg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image toolsIcons"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                    <p class="toolBarTitles">Spaces</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="loadingScreen">
+            <div id="loadingScreenText">LOADING...</div>
+            <img id="loadingScreenGif" src="/gifs/anotherloadingPendulum.gif"/>
+        </div>
+
+        <div id="virtualSpaces" onclick="closeThisObject('inviteFriendsToSpace'); closeThisObject('userInformationMenu'); closeThisObject('signInOrCreate')">
+            <div id="embed">
+                <iframe id="spaceVideo" src="" title=""></iframe>
+            </div>
+        </div>
+
+    </body>
+</html>
