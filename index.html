@@ -145,7 +145,7 @@
                             <div class="shuffleCategoryButton" onclick="getVideoInformation(space); loadingScreen();"><span class="darkUxToolTip">Space</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/ringed-planet_1fa90.png" alt="An emoji for CODE space category."></div>
                         </div>
                         <div class="shuffleCategoryWrapper">
-                            <div class="shuffleCategoryButton" onclick="getVideoInformation(cafe); loadingScreen();"><span class="darkUxToolTip">Cafe</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/hot-beverage_2615.png" alt="An emoji for CODE space category."></div>
+                            <div class="shuffleCategoryButton" onclick="getVideoInformation(cafe); loadingScreen();"><span class="darkUxToolTip">one</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/hot-beverage_2615.png" alt="An emoji for CODE space category."></div>
                         </div>
                         <div class="shuffleCategoryWrapper">
                             <div class="shuffleCategoryButton" onclick="getVideoInformation(art); loadingScreen();"><span class="darkUxToolTip">Art</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/artist-palette_1f3a8.png" alt="An emoji for CODE space category."></div>
@@ -217,7 +217,7 @@
         <div id="musicInfo">
             <div id="mainHeaderSection">
                 <div id="musicHandle"><div id="mainTitle">Music</div></div>
-                <div id="close" onclick="closeThisObject('musicInfo')";><button class="minimise"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div>
+                <div id="close" onclick="closeThisObject('musicInfo'); highlighted('music');"><button class="minimise"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div>
             </div>
             <iframe width="100%" id="spotifyEmbed" height="100%" style="border-radius:0px;width: 100%;height: 100%;" src="https://open.spotify.com/embed/playlist/3BagbZs5aHeJke8kQqyomJ?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
             <div id="musicChange">
@@ -230,7 +230,7 @@
         <div id="notesInfo">
             <div id="mainHeaderSection">
                 <div id="notesHandle"><div id="mainTitle">Notes</div></div>
-                <div id="close" onclick="closeThisObject('notesInfo');"><button class="minimise"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div>
+                <div id="close" onclick="closeThisObject('notesInfo'); highlighted('notes')"><button class="minimise"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div>
             </div>
             <textarea id="notesInput" type="text" placeholder="Type your notes here..."></textarea>
         </div>
@@ -238,7 +238,7 @@
         <div id="timerInfo">
             <div id="mainHeaderSection">
                 <div id="timerHandle"><div id="mainTitle">Timer</div></div>
-                <div id="close"><button class="minimise" onclick="closeThisObject('timerInfo');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div>
+                <div id="close"><button class="minimise" onclick="closeThisObject('timerInfo'); highlighted('timer')"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div>
             </div>
             <div id="theTimer">
                 <div id="timerState">
@@ -260,7 +260,7 @@
         <div id="quoteInfo">
             <div id="mainHeaderSection">
                 <div id="quoteHandle"><div id="mainTitle">Quote</div></div>
-                <div id="close"><button class="minimise" onclick="closeThisObject('quoteInfo');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div>
+                <div id="close"><button class="minimise" onclick="closeThisObject('quoteInfo'); highlighted('quote')"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div>
             </div>
             <h3 id="todaysQuote"></h3>
         </div>
@@ -268,43 +268,43 @@
         <div id="soundsInfo">
             <div id="mainHeaderSection">
                 <div id="soundsHandle"><div id="mainTitle">Soundboard</div></div>
-                <div id="close" onclick="closeThisObject('soundsInfo')";><button class="minimise"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div>
+                <div id="close" onclick="closeThisObject('soundsInfo'); highlighted('sounds')"><button class="minimise"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div>
                 <div class="volumeStateToggleForUserAudio" id="muteAll" onclick="changeSoundStateForAudio('muteAll'); muteAll();"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-x"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></div>
                 </div>
             <div id="availableSounds">
                 <div class="audioSource">
                     <div class="audioTitle">Cafe</div>
-                    <audio class="soundsForUser" autoplay="autoplay" loop="loop" id="cafeAudio" muted ="true" controls><source src="http://soundbible.com/grab.php?id=1664&type=mp3"></audio>
-                    <div class="volumeStateToggleForUserAudio" id="cafeMuteUnmute" onclick="changeMuteOrUnmute('cafeAudio'); changeSoundStateForAudio('cafeMuteUnmute');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-x"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></div>
-                    <input type="range" min="0" max="100" value="0" class="volumeSliderForUserAudio" oninput="unmuteOnMove('cafeAudio','cafeMuteUnmute'); changeVolumeValue(this.value/100, 'cafeAudio', 'cafeMuteUnmute');">
+                    <audio class="soundsForUser" autoplay="autoplay" loop="loop" id="oneAudio" muted ="true" controls><source src="https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-noise-creations/noisecreations_AMB-NCFREE02_London-Cafe-Small.mp3"></audio>
+                    <div class="volumeStateToggleForUserAudio" id="oneMuteUnmute" onclick="changeMuteOrUnmute('oneAudio'); changeSoundStateForAudio('oneMuteUnmute');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-x"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></div>
+                    <input type="range" min="0" max="100" value="0" class="volumeSliderForUserAudio" oninput="this.setAttribute('value', this.value); unmuteOnMove('oneAudio','oneMuteUnmute'); changeVolumeValue(this.value/100, 'oneAudio', 'oneMuteUnmute');">
                 </div>
 
                 <div class="audioSource">
                     <div class="audioTitle">Fireplace</div>
-                    <audio class="soundsForUser" autoplay="autoplay" loop="loop" id="firePlaceAudio" muted ="true" controls><source src="http://soundbible.com/grab.php?id=2178&type=mp3"></audio>
-                    <div class="volumeStateToggleForUserAudio" id="firePlaceMuteUnmute" onclick="changeMuteOrUnmute('firePlaceAudio'); changeSoundStateForAudio('firePlaceMuteUnmute');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-x"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></div>
-                    <input type="range" min="0" max="100" value="0" class="volumeSliderForUserAudio" oninput="unmuteOnMove('firePlaceAudio','firePlaceMuteUnmute'); changeVolumeValue(this.value/100, 'firePlaceAudio', 'firePlaceMuteUnmute');">
+                    <audio class="soundsForUser" autoplay="autoplay" loop="loop" id="twoPlaceAudio" muted ="true" controls><source src="http://soundbible.com/grab.php?id=2178&type=mp3"></audio>
+                    <div class="volumeStateToggleForUserAudio" id="twoPlaceMuteUnmute" onclick="changeMuteOrUnmute('twoPlaceAudio'); changeSoundStateForAudio('twoPlaceMuteUnmute');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-x"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></div>
+                    <input type="range" min="0" max="100" value="0" class="volumeSliderForUserAudio" oninput="this.setAttribute('value', this.value); unmuteOnMove('twoPlaceAudio','twoPlaceMuteUnmute'); changeVolumeValue(this.value/100, 'twoPlaceAudio', 'twoPlaceMuteUnmute');">
                 </div>
 
                 <div class="audioSource">
                     <div class="audioTitle">Lava</div>
-                    <audio class="soundsForUser" autoplay="autoplay" loop="loop" id="lavaAudio" muted ="true" controls><source src="/audio/zapsplat_nature_lava_flow_17940.mp3"></audio>
-                    <div class="volumeStateToggleForUserAudio" id="lavaMuteUnmute" onclick="changeMuteOrUnmute('lavaAudio'); changeSoundStateForAudio('lavaMuteUnmute');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-x"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></div>
-                    <input type="range" min="0" max="100" value="0" class="volumeSliderForUserAudio" oninput="unmuteOnMove('lavaAudio','lavaMuteUnmute'); changeVolumeValue(this.value/100, 'lavaAudio', 'lavaMuteUnmute');">
+                    <audio class="soundsForUser" autoplay="autoplay" loop="loop" id="threeAudio" muted ="true" controls><source src="https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-14566/zapsplat_nature_lava_flow_17940.mp3"></audio>
+                    <div class="volumeStateToggleForUserAudio" id="threeMuteUnmute" onclick="changeMuteOrUnmute('threeAudio'); changeSoundStateForAudio('threeMuteUnmute');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-x"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></div>
+                    <input type="range" min="0" max="100" value="0" class="volumeSliderForUserAudio" oninput="this.setAttribute('value', this.value); unmuteOnMove('threeAudio','threeMuteUnmute'); changeVolumeValue(this.value/100, 'threeAudio', 'threeMuteUnmute');">
                 </div>
 
                 <div class="audioSource">
                     <div class="audioTitle">Ocean</div>
-                    <audio class="soundsForUser" autoplay="autoplay" loop="loop" id="oceanAudio" muted ="true" controls><source src="http://soundbible.com/grab.php?id=1936&type=mp3"></audio>
-                    <div class="volumeStateToggleForUserAudio" id="oceanMuteUnmute" onclick="changeMuteOrUnmute('oceanAudio'); changeSoundStateForAudio('oceanMuteUnmute');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-x"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></div>
-                    <input type="range" min="0" max="100" value="0" class="volumeSliderForUserAudio" oninput="unmuteOnMove('oceanAudio','oceanMuteUnmute'); changeVolumeValue(this.value/100, 'oceanAudio', 'oceanMuteUnmute');">
+                    <audio class="soundsForUser" autoplay="autoplay" loop="loop" id="fourAudio" muted ="true" controls><source src="https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-one/water_ocean_waves_shore_calm_002.mp3"></audio>
+                    <div class="volumeStateToggleForUserAudio" id="fourMuteUnmute" onclick="changeMuteOrUnmute('fourAudio'); changeSoundStateForAudio('fourMuteUnmute');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-x"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></div>
+                    <input type="range" min="0" max="100" value="0" class="volumeSliderForUserAudio" oninput="this.setAttribute('value', this.value); unmuteOnMove('fourAudio','fourMuteUnmute'); changeVolumeValue(this.value/100, 'fourAudio', 'fourMuteUnmute');">
                 </div>
                 
                 <div class="audioSource">
                     <div class="audioTitle">Rain</div>
-                    <audio class="soundsForUser" autoplay="autoplay" loop="loop" id="rainAudio" muted ="true" controls><source src="http://soundbible.com/grab.php?id=1908&type=mp3"></audio>
-                    <div class="volumeStateToggleForUserAudio" id="rainMuteUnmute" onclick="changeMuteOrUnmute('rainAudio'); changeSoundStateForAudio('rainMuteUnmute');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-x"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></div>
-                    <input type="range" min="0" max="100" value="0" class="volumeSliderForUserAudio" oninput="unmuteOnMove('rainAudio','rainMuteUnmute'); changeVolumeValue(this.value/100, 'rainAudio', 'rainMuteUnmute');">
+                    <audio class="soundsForUser" autoplay="autoplay" loop="loop" id="fiveAudio" muted ="true" controls><source src="https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-77317/zapsplat_nature_rain_rainstorm_heavy_blustery_wind_rain_drips_slowly_calming_down_drips_and_birds_towards_end_south_eastern_australia_80653.mp3"></audio>
+                    <div class="volumeStateToggleForUserAudio" id="fiveMuteUnmute" onclick="changeMuteOrUnmute('fiveAudio'); changeSoundStateForAudio('fiveMuteUnmute');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-x"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></div>
+                    <input type="range" min="0" max="100" value="0" class="volumeSliderForUserAudio" oninput="this.setAttribute('value', this.value); unmuteOnMove('fiveAudio','fiveMuteUnmute'); changeVolumeValue(this.value/100, 'fiveAudio', 'fiveMuteUnmute');">
                     <div id="volumeValue"></div>
                 </div>
             </div>
