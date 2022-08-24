@@ -20,7 +20,7 @@ function changeMuteOrUnmute(myAudio) {
 }
 
 function muteAll() {
-    Array.from(document.querySelectorAll('audio')).forEach(el => el.muted = true)
+    Array.from(document.querySelectorAll('audio')).forEach(el => el.muted = true);
 }
 
 function unmuteOnMove(audioName, theIconToBeChanged) {
