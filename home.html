@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
+    <head><meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="google-signin-client_id" content="453176867754-kqls0uodm9g4lvi4tuk21aahnd2gqqaj.apps.googleusercontent.com">
         <title>DarkUx</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
         <link rel="stylesheet" href="/css/baseStyles.css">
-        <link rel="stylesheet" href="/css/homeStyles.css">
         <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/compass_1f9ed.png">
         <script src="https://unpkg.com/feather-icons"></script>
         <script src="https://kit.fontawesome.com/2604730bf5.js" crossorigin="anonymous"></script>
@@ -21,11 +21,13 @@
         <script src="/js/loading.js" defer></script>
         <script src="/js/theTime.js" defer></script>
         <script src="/js/iFrameVideo.js" defer></script>
-        <script src="/js/typedWithCursor.js" defer></script>
         <script src="/js/pomodoroTimer.js" defer></script>
-        <script src="/js/wInlineBlock.js" defer></script>
         <script src="/js/showTheToolTip.js" defer></script>
+        <script src="/js/saveSpaces.js" defer></script>
         <script src="/js/changeObjects.js" defer></script>
+        <script src="/js/copy.js" defer></script>
+        <script src="/js/signIn.js" defer></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
     </head>
     <body>
         <header>
@@ -35,11 +37,12 @@
                     <div id="searchBar"><a href="#"></a></div>
                 </div>
                 <div id="navTopRight">
-                    <a href="#" target="_blank" class="infoLink">FAQ</a>
-                    <a href="#" target="_blank" class="infoLink">Give feedback</a>
-                    <a href="#" target="_blank" class="infoLink">Our Story</a>
-                    <a href="#" target="_blank" class="infoLink">Showcase</a>
-                    <div id="goToApp"><a href="index.html" target="_blank" id="goToAppLink">Go To App</a></div>
+                    <a href="#" target="_blank" class="infoLink">Use Cases</a>
+                    <a href="#" target="_blank" class="infoLink">Pricing</a>
+                    <a href="#" target="_blank" class="infoLink">Community</a>
+                    <a href="#" target="_blank" class="infoLink">Careers</a>
+                    <a href="#" target="_blank" class="infoLink">Support</a>
+                    <div id="goToApp"><a href="/html/index.html" target="_blank" id="goToAppLink">Go To App</a></div>
                 </div>
             </nav>
         </header>
@@ -50,6 +53,8 @@
                 <div class="wInlineBlock" id="explore"><a href=""><img src="https://i.gifer.com/embedded/download/5Mz4.gif"/>Explore</a></div>
                 <span id="dividingLine"></span>
                 <div class="categoryLink"><a href="">🪐 Space</a></div>
+                <div class="categoryLink"><a href="">🎨 Art</a></div>
+                <div class="categoryLink"><a href="">🚶 Walk</a></div>
                 <div class="categoryLink"><a href="">⛱️ Beach</a></div>
                 <div class="categoryLink"><a href="">🏙️ City</a></div>
                 <div class="categoryLink"><a href="">💻 Code</a></div>
@@ -64,14 +69,14 @@
             </div>
         </div>
 
-        <div id="howHeader">
+        <!-- <div id="howHeader">
             <div id="headingTitle">Transform your workspace to</div>
             <div id="typeWriteWrapper">
                 <div class="typeWrite" data-period="2000" data-type='[ "Cafes in Mexico", "I am Creative.", "I Love Design.", "I Love to Develop." ]'>
                     <span class="typeWriteText"></span>
                 </div>
             </div>
-            <!-- <div id="videoWrapper"><div data-poster-url="https://uploads-ssl.webflow.com/60babc2e4a97ce747f58d8db/62041e87c137937733a54cc7_Untitled (11)-poster-00001.jpg" data-video-urls="https://uploads-ssl.webflow.com/60babc2e4a97ce747f58d8db/62041e87c137937733a54cc7_Untitled (11)-transcode.mp4,https://uploads-ssl.webflow.com/60babc2e4a97ce747f58d8db/62041e87c137937733a54cc7_Untitled (11)-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="background-video-3 w-background-video w-background-video-atom"><video autoplay="" loop="" style="background-image:url(&quot;https://uploads-ssl.webflow.com/60babc2e4a97ce747f58d8db/62041e87c137937733a54cc7_Untitled (11)-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover"><source src="https://uploads-ssl.webflow.com/60babc2e4a97ce747f58d8db/62041e87c137937733a54cc7_Untitled (11)-transcode.mp4" data-wf-ignore="true"><source src="https://uploads-ssl.webflow.com/60babc2e4a97ce747f58d8db/62041e87c137937733a54cc7_Untitled (11)-transcode.webm" data-wf-ignore="true"></video></div></div> -->
-        </div>
+            <div id="videoWrapper"><div data-poster-url="https://uploads-ssl.webflow.com/60babc2e4a97ce747f58d8db/62041e87c137937733a54cc7_Untitled (11)-poster-00001.jpg" data-video-urls="https://uploads-ssl.webflow.com/60babc2e4a97ce747f58d8db/62041e87c137937733a54cc7_Untitled (11)-transcode.mp4,https://uploads-ssl.webflow.com/60babc2e4a97ce747f58d8db/62041e87c137937733a54cc7_Untitled (11)-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="background-video-3 w-background-video w-background-video-atom"><video autoplay="" loop="" style="background-image:url(&quot;https://uploads-ssl.webflow.com/60babc2e4a97ce747f58d8db/62041e87c137937733a54cc7_Untitled (11)-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover"><source src="https://uploads-ssl.webflow.com/60babc2e4a97ce747f58d8db/62041e87c137937733a54cc7_Untitled (11)-transcode.mp4" data-wf-ignore="true"><source src="https://uploads-ssl.webflow.com/60babc2e4a97ce747f58d8db/62041e87c137937733a54cc7_Untitled (11)-transcode.webm" data-wf-ignore="true"></video></div></div>
+        </div> -->
     </body>
 </html>
