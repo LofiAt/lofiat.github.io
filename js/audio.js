@@ -46,6 +46,17 @@ function changePLaylist() {
     document.getElementById('changeTheMusicPlayListInput').value = "";
 }
 
+document.getElementById("changeTheMusicPlayListInput").addEventListener("keypress",
+   function(event) {
+      if (!event) {
+         var event = window.event;
+      }
+         event.preventDefault();
+      if (event.keyCode == 13){
+         changePLaylist();
+      }
+   }, false);
+
 function resetPlaylist() {
     document.getElementById('spotifyEmbed').src = 'https://open.spotify.com/embed/playlist/3BagbZs5aHeJke8kQqyomJ?utm_source=generator';
 }
