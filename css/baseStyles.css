@@ -818,8 +818,10 @@
 
 #signInOptions {
     width: 100%;
+    color: #000;
     height: calc(100% - 20px);
-    margin: auto;
+    display: flex;
+    justify-content: center;
 }
 
 .g-signin2 {
@@ -827,8 +829,6 @@
     position: absolute;
     text-align: center;
     border-radius: 8px;
-    width: 220px;
-    height: 40px;
     margin: 20px;
 }
 
