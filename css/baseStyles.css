@@ -257,14 +257,13 @@
 
 #virtualSpaces {
     overflow: hidden;
-    margin-top: -20px;
     z-index: -2000;
     max-width: 150%;
 }
 
 #embed {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 */  
+    padding-bottom: 56.25%; /* 16:9 */
     padding-top: 25px;
     width: 200%; /* enlarge beyond browser width */
     left: -100%; /* center */
@@ -971,9 +970,20 @@
 
 .shuffleCategoryWrapper {
     width: 65px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
     height: 55px;
     padding: 0px 0px 10px 0px;
     float: left;
+}
+
+#firstCategory {
+    margin-left: -4px;
+}
+
+#lastCategory {
+    margin-right: -5px;
 }
 
 .shuffleCategoryButton:hover {
@@ -1020,7 +1030,7 @@
 }
 
 .carouselRow {
-    width: 455px;
+    width: 446px;
 }
 
 [draggable=true] {
@@ -1118,6 +1128,16 @@
     float: right;
     overflow: visible;
     -webkit-appearance: none;
+}
+
+@media (max-width: 990px) {
+    #importantDarkUxInformation, #otherOptions, #spacesMenu, #toolBar, #loadingScreen, #virtualSpaces {
+        display: none;
+    }
+
+    #crampedError {
+        display: flex !important;
+    }
 }
 
 .feather {
