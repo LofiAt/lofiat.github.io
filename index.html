@@ -5,9 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="google-signin-client_id" content="453176867754-kqls0uodm9g4lvi4tuk21aahnd2gqqaj.apps.googleusercontent.com">
         <title>DarkUx Spaces</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <meta name="description" content="virtual Study Spaces. With music, ambient sounds and more. Stay a while!">
+        <meta name="keywords" content="Virtual, Music, Relax, Lofi, Background Noise, Study, Inspiration">
+        <meta name="author" content="Adrian Tobi">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <link rel="stylesheet" href="/css/baseStyles.css">
         <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/compass_1f9ed.png">
         <script src="https://unpkg.com/feather-icons"></script>
@@ -115,7 +116,7 @@
                 <div id="shufflerDescription">Click an emoji multiple times for more content</div>
                 <div id="spacesCategoriesCarousel">
                     <div class="carouselRow">
-                        <div class="shuffleCategoryWrapper">
+                        <div class="shuffleCategoryWrapper" id="firstCategory">
                             <div class="shuffleCategoryButton" onclick="getVideoInformation(beach); loadingScreen();"><span class="darkUxToolTip">Beach</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/beach-with-umbrella_1f3d6-fe0f.png" alt="An emoji for CODE space category."></div>
                         </div>
                         <div class="shuffleCategoryWrapper">
@@ -133,12 +134,12 @@
                         <div class="shuffleCategoryWrapper">
                             <div class="shuffleCategoryButton" onclick="getVideoInformation(walk); loadingScreen();"><span class="darkUxToolTip">Walk</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/person-walking_1f6b6.png" alt="An emoji for CODE space category."></div>
                         </div>
-                        <div class="shuffleCategoryWrapper">
+                        <div class="shuffleCategoryWrapper" id="lastCategory">
                             <div class="shuffleCategoryButton" onclick="getVideoInformation(snow); loadingScreen();"><span class="darkUxToolTip">Snow</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/snowman_2603-fe0f.png" alt="An emoji for CODE space category."></div>
                         </div>
                     </div>
                     <div class="carouselRow">
-                        <div class="shuffleCategoryWrapper">
+                        <div class="shuffleCategoryWrapper" id="firstCategory">
                             <div class="shuffleCategoryButton" onclick="getVideoInformation(windows); loadingScreen();"><span class="darkUxToolTip">Window</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/window_1fa9f.png" alt="An emoji for CODE space category."></div>
                         </div>
                         <div class="shuffleCategoryWrapper">
@@ -156,7 +157,7 @@
                         <div class="shuffleCategoryWrapper">
                             <div class="shuffleCategoryButton" onclick="getVideoInformation(games); loadingScreen();"><span class="darkUxToolTip">Games</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/joystick_1f579-fe0f.png" alt="An emoji for CODE space category."></div>
                         </div>
-                        <div class="shuffleCategoryWrapper">
+                        <div class="shuffleCategoryWrapper" id="lastCategory">
                             <div class="shuffleCategoryButton" onclick="getVideoInformation(city); loadingScreen();"><span class="darkUxToolTip">City</span><img class="space-category-icon" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/cityscape_1f3d9-fe0f.png" alt="An emoji for CODE space category."></div>
                         </div>
                     </div>
@@ -350,6 +351,8 @@
                 <iframe id="spaceVideo" src="https://www.youtube.com/embed/" title=""></iframe>
             </div>
         </div>
+
+        <div id="crampedError">Rabbid</div>
 
     </body>
 </html>
