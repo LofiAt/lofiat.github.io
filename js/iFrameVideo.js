@@ -62,8 +62,7 @@ var mystery = [
   ['Colourful Bubbles','RhlQvbvMg-0','@Community Member'],
   ['A peaceful place','DbuebKNKQsQ','@The Jazz Hop Café'],
   ['Jellyfish Aquarium','gdJjc6l6iII','@Cat Trumpet'],
-  ['Lofi keyboard','cbuZfY2S2UQ','@yanu_'],
-  ['Alternate Realities','ZkRjihsMdp8','pwnisher']
+  ['Lofi keyboard','cbuZfY2S2UQ','@yanu_']
 ];
 
 var cafe = [
