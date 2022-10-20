@@ -140,7 +140,7 @@ function getVideoInformation(arrayName) {
   document.getElementById("spaceVideo").title = arrayName[i][0];
   vidTitle();
   document.getElementById("shareSpaceLinkButton").ariaLabel = arrayName[i][1]
-  document.getElementById("spaceVideo").src = "https://www.youtube.com/embed/" + arrayName[i][1] + "?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&&loop=1&playlist=" + arrayName[i][1];
+  document.getElementById("spaceVideo").src = "https://www.youtube.com/embed/" + arrayName[i][1] + "?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&&loop=1&playlist=" + arrayName[i][1] + "&loop=1";
   document.getElementById("theCreatorUserName").innerHTML = arrayName[i][2];
 }
 
@@ -152,7 +152,7 @@ function playRandomVideo() {
   document.getElementById("spaceVideo").title = randomItem[itemNumber][0];
   vidTitle();
   document.getElementById("shareSpaceLinkButton").ariaLabel = randomItem[itemNumber][1];
-  document.getElementById("spaceVideo").src = "https://www.youtube.com/embed/" + randomItem[itemNumber][1] + "?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&mute=1&loop=1&playlist=" + randomItem[itemNumber][1];
+  document.getElementById("spaceVideo").src = "https://www.youtube.com/embed/" + randomItem[itemNumber][1] + "?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&mute=1&playlist=" + randomItem[itemNumber][1] +"&loop=1";
   document.getElementById("theCreatorUserName").innerHTML = randomItem[itemNumber][2];
 }
 
@@ -176,6 +176,7 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady() {
   console.log("hey Im ready");
+  player.seekTo(0);
   player.playVideo();
   if (document.getElementById("volumeStateToggle").innerHTML === '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>') {
     document.getElementById("volumeStateToggle").ariaLabel = "hear";
