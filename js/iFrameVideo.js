@@ -140,7 +140,7 @@ function getVideoInformation(arrayName) {
   document.getElementById("spaceVideo").title = arrayName[i][0];
   vidTitle();
   document.getElementById("shareSpaceLinkButton").ariaLabel = arrayName[i][1]
-  document.getElementById("spaceVideo").src = "https://www.youtube.com/embed/" + arrayName[i][1] + "?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&&loop=1&playlist=" + arrayName[i][1] + "&loop=1";
+  document.getElementById("spaceVideo").src = "https://www.youtube.com/embed/" + arrayName[i][1] + "?rel=0&loop=1&playlist=" + arrayName[i][1]+ "&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0";
   document.getElementById("theCreatorUserName").innerHTML = arrayName[i][2];
 }
 
@@ -152,7 +152,7 @@ function playRandomVideo() {
   document.getElementById("spaceVideo").title = randomItem[itemNumber][0];
   vidTitle();
   document.getElementById("shareSpaceLinkButton").ariaLabel = randomItem[itemNumber][1];
-  document.getElementById("spaceVideo").src = "https://www.youtube.com/embed/" + randomItem[itemNumber][1] + "?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&mute=1&playlist=" + randomItem[itemNumber][1] +"&loop=1";
+  document.getElementById("spaceVideo").src = "https://www.youtube.com/embed/" + randomItem[itemNumber][1] + "?rel=0&loop=1&playlist=" + randomItem[itemNumber][1]+ "&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0";
   document.getElementById("theCreatorUserName").innerHTML = randomItem[itemNumber][2];
 }
 
