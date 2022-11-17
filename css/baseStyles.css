@@ -539,7 +539,8 @@
 
 #spacesInfoBlock {
     background-color: #2d333b;
-    margin-top: -10px;
+    border-radius: 10px;
+    margin: -10px 5px 0 5px;
     height: 94px;
     padding: 8px 16px;
 }
