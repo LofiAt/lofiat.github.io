@@ -28,7 +28,7 @@ function studyWithMe() {
 
     else if (document.getElementById("spaceVideo").src === "https://www.youtube.com/embed/CPIi6JEUufU?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1") {
         document.getElementById("spaceVideo").src = "https://www.youtube.com/embed/fJP7c8xt1n4?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1";
-        document.getElementById("spaceVideo").title = "Study with KharmaMedic";
+        document.getElementById("spaceVideo").title = "Study - KharmaMedic";
         setSoundIconToDefault();
     }
 
@@ -39,9 +39,25 @@ function studyWithMe() {
     }
 }
 
+
+function setHeartIfLiked(vidLink) {
+  var idArr = [];
+  var children = document.getElementById("savedSpaces").children;
+  for (var i = 0; i < children.length; i++) {
+    idArr.push(children[i].id);
+  }
+
+  for (var i = 0; i < idArr.length; i++) {
+    if (vidLink === idArr[i]) {
+      setHeart();
+    }
+  }
+}
+
+
 var study = [
   ['Study with StudyMD','MrkPc_mFQWU','@StudyMD'],
-  ['Study with KharmaMedic','fJP7c8xt1n4','@KharmaMedic'],
+  ['Study - KharmaMedic','fJP7c8xt1n4','@KharmaMedic'],
   ['Study with Sebastian','CPIi6JEUufU','@Sebastian'],
   ['Study with Abao','grBFMP3HDZA','@Abao']
 ];
@@ -67,7 +83,7 @@ var mystery = [
 
 var cafe = [
   ['Sarutahiko coffee','qMHbh6XmgwM','@Jun\'s Cafe Stroll'],
-  ['Study with KharmaMedic','fJP7c8xt1n4','@StudyMD'],
+  ['Study - KharmaMedic','fJP7c8xt1n4','@StudyMD'],
   ['Study with Sebastian','CPIi6JEUufU','@StudyMD'],
   ['Study with Abao','grBFMP3HDZA','@StudyMD']
 ];
@@ -75,7 +91,7 @@ var cafe = [
 var games = [
   ['City of Gamers','FFfdyV8gnWk','@DeepShot'],
   ['Genshin Soundtrack','jC0w_zBQqeA','@Anson Thai'],
-  ['Relaxing Undertale Music','pwkaSIq5giQ','@Lou Says'],
+  ['Undertale Music','pwkaSIq5giQ','@Lou Says'],
   ['EVE space city','nJ38P5elTkg','@Selcuk Celebi']
 ];
 
@@ -93,9 +109,9 @@ var snow = [
 ];
 
 var walk = [
-  ['Walking in Thunderstorm','f3lVkdM3fGQ','@Nomadic Ambience'],
+  ['Walk in Thunderstorm','f3lVkdM3fGQ','@Nomadic Ambience'],
   ['Hike through the Forest','hld4uaO1MDE','@4K Relaxation Channel'],
-  ['Rain, Zermatt Switzerland','LFOx-vmYrts','@Nomadic Ambience'],
+  ['Zermatt Switzerland','LFOx-vmYrts','@Nomadic Ambience'],
   ['Walk in Nature Bordeaux','hzz7U-2h17w','@The Relaxed Walker'],
   ['Heavy Rainstorm in NYC','uMnGzVPUEB4','@Nomadic Ambience'],
 ];
@@ -116,7 +132,7 @@ var art = [
 
 var pets = [
   ['Relax with my dog','aKVBZpJgY0A','@Fall In Chill'],
-  ['Study with KharmaMedic','fJP7c8xt1n4','@StudyMD'],
+  ['Study - KharmaMedic','fJP7c8xt1n4','@StudyMD'],
   ['Relax with my cat','GrG2-oX5z24','@Fall in Chill']
 ];
 
@@ -139,9 +155,11 @@ function getVideoInformation(arrayName) {
   i = i % arrayName.length;
   document.getElementById("spaceVideo").title = arrayName[i][0];
   vidTitle();
-  document.getElementById("shareSpaceLinkButton").ariaLabel = arrayName[i][1]
+  document.getElementById("shareSpaceLinkButton").ariaLabel = arrayName[i][1];
   document.getElementById("spaceVideo").src = "https://www.youtube.com/embed/" + arrayName[i][1] + "?rel=0&loop=1&playlist=" + arrayName[i][1]+ "&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0";
   document.getElementById("theCreatorUserName").innerHTML = arrayName[i][2];
+  document.getElementById("virtualSpaces").ariaLabel = arrayName;
+  setHeartIfLiked(arrayName[i][1]);
 }
 
 var myArray = [study,space,mystery,windows,code,beach,celebrity,snow,walk,art,cafe,pets,city,games]
@@ -154,6 +172,8 @@ function playRandomVideo() {
   document.getElementById("shareSpaceLinkButton").ariaLabel = randomItem[itemNumber][1];
   document.getElementById("spaceVideo").src = "https://www.youtube.com/embed/" + randomItem[itemNumber][1] + "?rel=0&loop=1&playlist=" + randomItem[itemNumber][1]+ "&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0";
   document.getElementById("theCreatorUserName").innerHTML = randomItem[itemNumber][2];
+  document.getElementById("virtualSpaces").ariaLabel = randomItem;
+  setHeartIfLiked(randomItem[i][1]);
 }
 
 
@@ -239,3 +259,109 @@ document.getElementById("volumeStateToggle").addEventListener('click', function(
     document.getElementById('volumeSlider').value = 0;
   }
 });
+
+function deleteSavedSpace(idName) {
+  document.getElementById(idName).remove()
+}
+
+var likedSpaces = [];
+
+document.getElementById("saveSpace").addEventListener("click", function(){
+  if (document.getElementById("saveSpace").ariaLabel === "add") {
+    likedSpaces.push([document.getElementById("spaceNameText").innerHTML,document.getElementById("shareSpaceLinkButton").ariaLabel,document.getElementById("theCreatorUserName").innerHTML,document.getElementById("virtualSpaces").ariaLabel]);
+    addSpaceToLiked(document.getElementById("spaceNameText").innerHTML,document.getElementById("shareSpaceLinkButton").ariaLabel,document.getElementById("theCreatorUserName").innerHTML,document.getElementById("virtualSpaces").ariaLabel);
+    document.getElementById("saveSpace").ariaLabel = "remove";
+  }
+  else {
+    document.getElementById("saveSpace").ariaLabel = "add";
+    deleteSavedSpace(document.getElementById("shareSpaceLinkButton").ariaLabel);
+  }
+});
+
+function addSpaceToLiked(spaceName, spaceLink, spaceCreator, spaceGroup) {
+  var image = checkGroup(spaceGroup);
+  var div = `<div class="favouriteSpaceWrapper" id=`+spaceLink+` draggable="true">
+  <div class="spacesNameInList" onclick="loadingScreen(); openVideo('`+spaceLink+`','`+spaceCreator+`','`+spaceName+`')"><img class="space-category-icon" src=`+image+` alt="An emoji for CODE space category."><div class="favouriteSpaceName">`+spaceName+`</div></div>
+  <span class="removeTheSavedSpace" onclick="deleteSavedSpace('`+spaceLink+`'); resetHeart()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
+</div>`;
+
+  document.getElementById("savedSpaces").insertAdjacentHTML(`beforeend`,div);
+}
+
+function checkGroup(spaceGroup) {
+  if (spaceGroup == beach) {
+    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/beach-with-umbrella_1f3d6-fe0f.png";
+  }
+  else if (spaceGroup == code) {
+    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/laptop_1f4bb.png";
+  }
+  else if (spaceGroup == celebrity) {
+    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/microphone_1f3a4.png";
+  }
+  else if (spaceGroup == games) {
+    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/joystick_1f579-fe0f.png";
+  }
+  else if (spaceGroup == space) {
+    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/ringed-planet_1fa90.png";
+  }
+  else if (spaceGroup == windows) {
+    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/window_1fa9f.png";
+  }
+  else if (spaceGroup == mystery) {
+    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/face-with-monocle_1f9d0.png";
+  }
+  else if (spaceGroup == walk) {
+    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/person-walking_1f6b6.png";
+  }
+  else if (spaceGroup == snow) {
+    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/snowman_2603-fe0f.png";
+  }
+  else if (spaceGroup == study) {
+    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/woman-technologist_1f469-200d-1f4bb.png";
+  }
+  else if (spaceGroup == city) {
+    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/cityscape_1f3d9-fe0f.png";
+  }
+  else if (spaceGroup == cafe) {
+    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/hot-beverage_2615.png";
+  }
+  else if (spaceGroup == art) {
+    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/artist-palette_1f3a8.png";
+  }
+  else if (spaceGroup == pets) {
+    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/cat_1f408.png";
+  }
+  else {
+    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/prohibited_1f6ab.png";
+  }
+}
+
+function openVideo(spaceLink, spaceCreator, spaceName) {
+  setHeart();
+  document.getElementById("spaceVideo").src = "https://www.youtube.com/embed/" + spaceLink + "?rel=0&loop=1&playlist=" + spaceLink + "&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0";
+  document.getElementById("spaceVideo").title = spaceName;
+  vidTitle();
+  document.getElementById("shareSpaceLinkButton").ariaLabel = spaceLink;
+  document.getElementById("theCreatorUserName").innerHTML = spaceCreator;
+}
+
+function setHeart() {
+  document.getElementById("saveSpace").ariaLabel = "remove";
+  document.getElementById("saveSpace").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d68e7f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path fill="#d68e7f" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>';
+}
+
+function resetHeart() {
+  document.getElementById("saveSpace").ariaLabel = "add";
+  document.getElementById("saveSpace").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d68e7f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>';
+}
+
+function changeHeartState() {
+  if (document.getElementById("saveSpace").ariaLabel === "remove") {
+    document.getElementById("saveSpace").ariaLabel = "add";
+    document.getElementById("saveSpace").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d68e7f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>';
+  }
+  else if (document.getElementById("saveSpace").ariaLabel === "add") {
+    document.getElementById("saveSpace").ariaLabel = "remove";
+    document.getElementById("saveSpace").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d68e7f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path fill="#d68e7f" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>';
+  }
+}
