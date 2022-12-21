@@ -862,9 +862,17 @@
     margin-right: 40px;
 }
 
+#spotifyEmbed {
+    height: calc(100% - 38px)
+}
+
+#musicInfo:hover > #musicChange {transition: margin ease-in-out 0.2s; margin-bottom: 0px;}
+#musicInfo:Hover > #spotifyEmbed { height: calc(100% - 78px); transition: height ease-in-out 0.2s; }
+
 #musicChange {
     width: 100%;
     height: 35px;
+    margin-bottom: -500px;
     padding-top: 5px;
     background-color: #232931;
     position: absolute;
@@ -873,6 +881,7 @@
 
 #changeTheMusicPlayList {
     margin-left: 16px;
+    width: calc(100% - 100px);
     font-size: 14px;
     float: left;
 }
@@ -882,6 +891,7 @@
     text-decoration: none;
     line-height: 25px;
     min-width: 235px;
+    width: calc(100% - 24px);
     font-size: 14px;
     padding: 2px 10px 0px 10px;
     border-radius: 8px;
