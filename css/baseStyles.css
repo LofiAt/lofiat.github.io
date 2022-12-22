@@ -52,6 +52,7 @@
 }
 
 #musicInfo {
+    height: 430px;
     min-width: 360px;
     min-height: 158px;
     resize: both;
