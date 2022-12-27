@@ -864,11 +864,12 @@
 }
 
 #spotifyEmbed {
-    height: calc(100% - 38px)
+    height: calc(100% - 38px);
+    transition: height ease-in-out 0.2s; 
 }
 
-#musicInfo:hover > #musicChange {transition: margin ease-in-out 0.2s; margin-bottom: 0px;}
-#musicInfo:Hover > #spotifyEmbed { height: calc(100% - 78px); transition: height ease-in-out 0.2s; }
+#musicInfo:hover > #musicChange {margin-bottom: 0px;}
+#musicInfo:Hover > #spotifyEmbed { height: calc(100% - 78px);}
 
 #musicChange {
     width: 100%;
@@ -878,6 +879,7 @@
     background-color: #232931;
     position: absolute;
     bottom: 0;
+    transition: margin ease-in-out 0.2s;
 }
 
 #changeTheMusicPlayList {
