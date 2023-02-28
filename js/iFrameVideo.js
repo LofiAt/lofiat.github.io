@@ -13,33 +13,6 @@ function changeSoundState() {
     }
 }
 
-function studyWithMe() {
-    if (document.getElementById("spaceVideo").src === "https://www.youtube.com/embed/eyTcjnX83j4?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1") {
-        document.getElementById("spaceVideo").src = "https://www.youtube.com/embed/1VOWybJxQz0?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1";
-        document.getElementById("spaceVideo").title = "Study with StudyMD";
-        setSoundIconToDefault();
-    }
-
-    else if (document.getElementById("spaceVideo").src === "https://www.youtube.com/embed/1VOWybJxQz0?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1") {
-        document.getElementById("spaceVideo").src = "https://www.youtube.com/embed/CPIi6JEUufU?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1";
-        document.getElementById("spaceVideo").title = "Study with Sebastian";
-        setSoundIconToDefault();
-    }
-
-    else if (document.getElementById("spaceVideo").src === "https://www.youtube.com/embed/CPIi6JEUufU?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1") {
-        document.getElementById("spaceVideo").src = "https://www.youtube.com/embed/fJP7c8xt1n4?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1";
-        document.getElementById("spaceVideo").title = "Study - KharmaMedic";
-        setSoundIconToDefault();
-    }
-
-    else {
-        document.getElementById("spaceVideo").src = "https://www.youtube.com/embed/eyTcjnX83j4?rel=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0&showsearch=0&iv_load_policy=3&enablejsapi=1&disablekb=0&loop=1";
-        document.getElementById("spaceVideo").title = "Study w/ Study to success";
-        setSoundIconToDefault();
-    }
-}
-
-
 function setHeartIfLiked(vidLink) {
   var idArr = [];
   var children = document.getElementById("savedSpaces").children;
@@ -53,7 +26,6 @@ function setHeartIfLiked(vidLink) {
     }
   }
 }
-
 
 var study = [
   ['Study with StudyMD','MrkPc_mFQWU','@StudyMD'],
@@ -281,7 +253,8 @@ document.getElementById("saveSpace").addEventListener("click", function(){
 function addSpaceToLiked(spaceName, spaceLink, spaceCreator, spaceGroup) {
   var image = checkGroup(spaceGroup);
   var div = `<div class="favouriteSpaceWrapper" id=`+spaceLink+` draggable="true">
-  <div class="spacesNameInList" onclick="loadingScreen(); openVideo('`+spaceLink+`','`+spaceCreator+`','`+spaceName+`')"><img class="space-category-icon" src=`+image+` alt="An emoji for CODE space category."><div class="favouriteSpaceName">`+spaceName+`</div></div>
+  <span class="dragFavouriteSpace"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></span>
+  <div class="spacesNameInList" onclick="loadingScreen(); openVideo('`+spaceLink+`','`+spaceCreator+`','`+spaceName+`')"><img class="space-category-icon" src=`+image+` alt="An emoji for `+spaceGroup+` space category."><div class="favouriteSpaceName">`+spaceName+`</div></div>
   <span class="removeTheSavedSpace" onclick="deleteSavedSpace('`+spaceLink+`'); resetHeart()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
 </div>`;
 
@@ -290,49 +263,49 @@ function addSpaceToLiked(spaceName, spaceLink, spaceCreator, spaceGroup) {
 
 function checkGroup(spaceGroup) {
   if (spaceGroup == beach) {
-    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/beach-with-umbrella_1f3d6-fe0f.png";
+    return "https://em-content.zobj.net/thumbs/160/apple/325/beach-with-umbrella_1f3d6-fe0f.png";
   }
   else if (spaceGroup == code) {
-    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/laptop_1f4bb.png";
+    return "https://em-content.zobj.net/thumbs/240/apple/285/laptop_1f4bb.png";
   }
   else if (spaceGroup == celebrity) {
-    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/microphone_1f3a4.png";
+    return "https://em-content.zobj.net/thumbs/160/apple/325/microphone_1f3a4.png";
   }
   else if (spaceGroup == games) {
-    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/joystick_1f579-fe0f.png";
+    return "https://em-content.zobj.net/thumbs/160/apple/325/joystick_1f579-fe0f.png";
   }
   else if (spaceGroup == space) {
-    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/ringed-planet_1fa90.png";
+    return "https://em-content.zobj.net/thumbs/160/apple/325/ringed-planet_1fa90.png";
   }
   else if (spaceGroup == windows) {
-    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/window_1fa9f.png";
+    return "https://em-content.zobj.net/thumbs/160/apple/325/window_1fa9f.png";
   }
   else if (spaceGroup == mystery) {
-    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/face-with-monocle_1f9d0.png";
+    return "https://em-content.zobj.net/thumbs/160/apple/325/face-with-monocle_1f9d0.png";
   }
   else if (spaceGroup == walk) {
-    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/person-walking_1f6b6.png";
+    return "https://em-content.zobj.net/thumbs/160/apple/325/person-walking_1f6b6.png";
   }
   else if (spaceGroup == snow) {
-    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/snowman_2603-fe0f.png";
+    return "https://em-content.zobj.net/thumbs/160/apple/325/snowman_2603-fe0f.png";
   }
   else if (spaceGroup == study) {
-    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/woman-technologist_1f469-200d-1f4bb.png";
+    return "https://em-content.zobj.net/thumbs/160/apple/325/woman-technologist_1f469-200d-1f4bb.png";
   }
   else if (spaceGroup == city) {
-    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/cityscape_1f3d9-fe0f.png";
+    return "https://em-content.zobj.net/thumbs/160/apple/325/cityscape_1f3d9-fe0f.png";
   }
   else if (spaceGroup == cafe) {
-    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/hot-beverage_2615.png";
+    return "https://em-content.zobj.net/thumbs/160/apple/325/hot-beverage_2615.png";
   }
   else if (spaceGroup == art) {
-    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/artist-palette_1f3a8.png";
+    return "https://em-content.zobj.net/thumbs/160/apple/325/artist-palette_1f3a8.png";
   }
   else if (spaceGroup == pets) {
-    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/cat_1f408.png";
+    return "https://em-content.zobj.net/thumbs/160/apple/325/cat_1f408.png";
   }
   else {
-    return "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/prohibited_1f6ab.png";
+    return "https://em-content.zobj.net/thumbs/120/apple/325/prohibited_1f6ab.png";
   }
 }
 
