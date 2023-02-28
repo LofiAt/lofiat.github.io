@@ -427,6 +427,14 @@
     background-color: #232931;
 }
 
+#otherOptions #userInformation .feather-more-vertical {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 10px;
+    margin: auto;
+}
+
 #expandWindowButton, #shrinkWindowButton {
     width: 15px;
     height: 36px;
@@ -702,6 +710,9 @@
     box-shadow: 2px 2px 6px #1e242b;
     background-color: #232931;
     float: left;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 #popUpPlayListHeader {
@@ -770,8 +781,12 @@
 }
 
 #savedSpaces {
-    padding: 0px 0px 6px;
-    margin: 12px;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    text-align: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .popUp {
@@ -1017,11 +1032,10 @@
     cursor: pointer;
     border: 1.5px solid #515151;
     float: left;
-}
-
-.shuffleCategoryButton img {
-  margin: 10px auto;
-  display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .shuffleCategoryButton:hover .darkUxToolTip {
@@ -1053,17 +1067,21 @@
 
 .favouriteSpaceWrapper {
     margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .favouriteSpaceName {
-    margin-top: -26px;
-    margin-left: 40px;
     color: white;
+    margin-left: 10px;
 }
 
 .space-category-icon {
+    display: flex;
     width: 30px;
-    margin-top: 4px;
     height: 30px;
 }
 
@@ -1081,27 +1099,71 @@
 .favouriteSpaceWrapper {
     float: left;
     border-radius: 8px;
+    width: 100%;
     background-color: transparent;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .spacesNameInList {
     font-size: 14px;
-    width: 230px;
-    height: 38px;
-    padding-left: 20px;
+    width: 240px;
+    height: 35px;
+    padding-left: 10px;
     border-radius: 8px;
-    border: 1.5px solid #e9e9e9;
+    border: 1.5px solid #515151;
     background-color: transparent;
     float: left;
-    cursor: grab;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: width ease-in-out 0.25s;
+}
+
+.spacesNameInList img {
+    width: 24px;
+    height: 24px;
+}
+
+.favouriteSpaceWrapper:hover .spacesNameInList {
+    width: 225px;
+    background-color: #424345;
+}
+
+.favouriteSpaceWrapper:hover .dragFavouriteSpace {
+    display: flex;
+}
+
+.dragFavouriteSpace {
+    height: 16px;
+    width: 28px;
+    cursor: drag;
+    display: none;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.dragFavouriteSpace .feather-more-vertical {
+    stroke: #fff;
+    margin-left: -8px;
+    width: 16px;
+    height: 16px;
 }
 
 .removeTheSavedSpace {
     float: right;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     background-color: transparent;
-    margin-top: -38px;
-    margin-right: 0px;
+}
+
+.removeTheSavedSpace .feather-x {
+    stroke: #515151
 }
 
 .timerTitle {
@@ -1234,11 +1296,6 @@
     max-width: 13px;
     width: auto;
     height: auto;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 10px;
-    margin: auto;
 }
 
 .feather-share {
