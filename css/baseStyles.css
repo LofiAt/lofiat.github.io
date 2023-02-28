@@ -1228,12 +1228,12 @@
     height: 20px;
 }
 
-.feather-file-text, .feather-speaker, .feather-clock, .feather-slider, .feather-book-open, .feather-image {
+.feather-file-text, .feather-music, .feather-clock, .feather-slider, .feather-book-open, .feather-image {
     width: 24px;
     height: 24px;
 }
 
-.feather-speaker {
+.feather-music {
     width: 24px;
     height: 24px;
 }
