@@ -175,12 +175,24 @@
     outline: none;
     text-decoration: none;
     border: none;
+    cursor: auto;
     overflow-y: visible;
     resize: none;
 }
 
 #notesInput::-webkit-scrollbar {
-    width: 0px;
+    width: 6px;               /* width of the entire scrollbar */
+    cursor: pointer;
+}
+  
+#notesInput::-webkit-scrollbar-track {
+    background: #232931;        /* color of the tracking area */
+}
+  
+#notesInput::-webkit-scrollbar-thumb {
+    background-color: #dbdbdb;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 2px solid #232931;  /* creates padding around scroll thumb */
 }
 
 #todaysQuote {
