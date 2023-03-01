@@ -116,20 +116,22 @@
     position: fixed;
     margin-top: calc(100vh - 88px);
     width: 360px;
-    height: 80px;
+    height: 78px;
     margin-left: auto;
     margin-right: auto;
     z-index: 2002;
     left: 0;
     right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 #toolBarTitle {
     width: 40px;
     height: 8px;
+    display: flex;
     font-size: 12px;
-    margin-left: auto;
-    margin-right: auto;
     background-color: #232931;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -137,13 +139,32 @@
 }
 
 #toolBarData {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     margin-left: auto;
     margin-right: auto;
     width: 360px;
     height: 55px;
     border-radius: 10px;
     background-color: #232931;
+}
+
+.toolBarTitles {
+    display: flex;
+    font-size: 10px;
+}
+
+.icon {
+    width: 42px;
+    height: 42px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 #notesInput {
@@ -174,17 +195,6 @@
     margin-left: 25px;
 }
 
-#notesIcon, #musicIcon, #timerIcon, #soundsIcon, #spacesIcon, #quoteIcon {
-    width: 50px;
-    height: 60px;
-    color: #fff;
-    margin-left: auto;
-    margin-top: 5px;
-    cursor: pointer;
-    display: inline-block;
-    text-align: center;
-}
-
 #timerValue {
     display: flex;
     font-size: 54px;
@@ -202,8 +212,8 @@
     margin-top: 14px;
     margin-right: 20px;
     text-align: center;
-    border: 1.5px solid #4e4e4e;
-    border-radius: 15px;
+    border: 1.5px solid #fff;
+    border-radius: 10px;
     width: 100px;
 }
 
@@ -992,11 +1002,6 @@
     background: none;
 }
 
-.toolBarTitles {
-    margin-top: 0px;
-    font-size: 12px;
-}
-
 .shuffleCategoryWrapper {
     width: 65px;
     display: flex;
@@ -1228,14 +1233,9 @@
     height: 20px;
 }
 
-.feather-file-text, .feather-music, .feather-clock, .feather-slider, .feather-book-open, .feather-image {
-    width: 24px;
-    height: 24px;
-}
-
-.feather-music {
-    width: 24px;
-    height: 24px;
+.feather-file-text, .feather-music, .feather-clock, .feather-slider, .feather-book-open, .feather-image, .feather-calendar {
+    width: 20px;
+    height: 20px;
 }
 
 .feather-info {
