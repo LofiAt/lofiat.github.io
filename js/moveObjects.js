@@ -1,69 +1,69 @@
 function getMargins(element) {
-  var style = element.currentStyle || window.getComputedStyle(element);
+    var style = element.currentStyle || window.getComputedStyle(element);
 
-      var result = {
-          getX: function() {
-              return parseInt(style.marginLeft);
-          },
-          getY: function() {
-              return parseInt(style.marginTop);
-          }
-      };
-  
-      return result;
-  }
+    var result = {
+        getX: function() {
+            return parseInt(style.marginLeft);
+        },
+        getY: function() {
+            return parseInt(style.marginTop);
+        }
+    };
 
-  function prepareDragging(element, handle) {
-      var dragging = false;
+    return result;
+}
 
-      var clickX, clickY;
-      var positionX, positionY;
+function prepareDragging(element, handle) {
+    var dragging = false;
 
-      var style = element.style;
+    var clickX, clickY;
+    var positionX, positionY;
 
-      function onMouseDown(e) {
-          clickX = e.clientX;
-          clickY = e.clientY;
+    var style = element.style;
 
-          var margins = getMargins(element);
+    function onMouseDown(e) {
+        clickX = e.clientX;
+        clickY = e.clientY;
 
-          // this approach prevents agains different margin sizes
-          positionX = element.offsetLeft - margins.getX();
-          positionY = element.offsetTop - margins.getY();
+        var margins = getMargins(element);
 
-          dragging = true;
-      }
+        // this approach prevents against different margin sizes
+        positionX = element.offsetLeft - margins.getX();
+        positionY = element.offsetTop - margins.getY();
 
-      function onMouseUp(e) {
-          dragging = false;
-      }
+        dragging = true;
+    }
+
+    function onMouseUp(e) {
+        dragging = false;
+    }
+
+    function onMouseMove(e) {
+        if (dragging) {
+            var x = positionX + e.clientX - clickX;
+            var y = positionY + e.clientY - clickY;
+            
+            style.left = x + 'px';
+            style.top = y + 'px';
+        }
+    }
+
+    handle.addEventListener('mousedown', onMouseDown);  
+    window.addEventListener('mouseup', onMouseUp);  
+    window.addEventListener('mousemove', onMouseMove);
     
-      function onMouseMove(e) {
-          if (dragging) {
-              var x = positionX + e.clientX - clickX;
-              var y = positionY + e.clientY - clickY;
-              
-              style.left = x + 'px';
-              style.top = y + 'px';
-          }
-      }
+    var remove = function() {
+        if (remove) {
+            handle.removeEventListener('mousedown', onMouseDown);  
+            window.removeEventListener('mouseup', onMouseUp); 
+            window.removeEventListener('mousemove', onMouseMove);
 
-      handle.addEventListener('mousedown', onMouseDown);  
-      window.addEventListener('mouseup', onMouseUp);  
-      window.addEventListener('mousemove', onMouseMove);
-      
-      var remove = function() {
-          if (remove) {
-              handle.removeEventListener('mousedown', onMouseDown);  
-              window.removeEventListener('mouseup', onMouseUp); 
-              window.removeEventListener('mousemove', onMouseMove);
+            remove = null;
+        }
+    };
 
-              remove = null;
-          }
-      };
-    
-      return remove;
-  }
+    return remove;
+}
 
   prepareDragging(document.querySelector('#musicInfo'), document.querySelector('#musicHandle'));
   prepareDragging(document.querySelector('#notesInfo'), document.querySelector('#notesHandle'));
