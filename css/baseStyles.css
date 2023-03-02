@@ -625,6 +625,7 @@
 
 #saveSpace {
     margin-right: 4px;
+    overflow-y: visible;
 }
 
 #playList {
@@ -768,12 +769,12 @@
     background-color: #232931;
     float: left;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
 }
 
 #popUpPlayListHeader {
     font-size: 18px;
+    display: flex;
     padding: 12px;
 }
 
@@ -841,10 +842,16 @@
     display: flex;
     width: 100%;
     justify-content: flex-end;
-    flex-direction: column;
+    gap: 15px;
+    padding: 30px 0;
+    overflow-y: scroll;
     text-align: center;
     align-items: center;
     flex-wrap: wrap;
+}
+
+#savedSpaces::-webkit-scrollbar {
+    display: none;
 }
 
 .popUp {
@@ -1119,7 +1126,6 @@
 }
 
 .favouriteSpaceWrapper {
-    margin-bottom: 5px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -1190,12 +1196,19 @@
 .dragFavouriteSpace {
     height: 16px;
     width: 28px;
-    cursor: drag;
+    cursor: grab;
     display: none;
     overflow: hidden;
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.dragFavouriteSpace:active {
+    cursor: grabbing !important;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+
 }
 
 .dragFavouriteSpace .feather-more-vertical {
