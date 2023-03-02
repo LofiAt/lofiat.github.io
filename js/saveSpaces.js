@@ -1,3 +1,4 @@
-function deleteSavedSpace(idName) {
-    document.getElementById(idName).remove()
-}
+const dragArea = document.querySelector("#savedSpaces");
+    new Sortable(dragArea, {
+        animation: 350
+});
