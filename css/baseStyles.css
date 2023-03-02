@@ -27,7 +27,6 @@
 
 #spacesContent {
     position: absolute;
-    display: block;
     width: 300px;
     height: calc(100vh - 16px); /*the standard height is 128.75px*/
     margin-top: 8px;
@@ -242,6 +241,20 @@
     float: right;
 }
 
+#spacesSideBarHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 14px;
+    align-items: center;
+}
+
+#currentTime {
+    color: #fff;
+    font-size: 16px;
+    float: right;
+    cursor: default;
+}
+
 #darkuxInfoButton {
     font-size: 16px;
     width: 96px;
@@ -250,8 +263,6 @@
     border-radius: 8px;
     background-color: #2d333b;
     cursor: pointer;
-    margin: 12px;
-    margin-left: 14px;
     text-decoration: none;
     padding-top: 2px;
 }
@@ -520,15 +531,6 @@
 
 .otherOptionsDivider2 {
     margin-right: 5px;
-}
-
-#currentTime {
-    color: #fff;
-    font-size: 16px;
-    float: right;
-    margin-top: -35px;
-    cursor: default;
-    margin-right: 16px;
 }
 
 #userInformationMenu {
@@ -806,6 +808,7 @@
     display: flex;
     width: 100%;
     justify-content: flex-end;
+    flex-direction: column;
     text-align: center;
     align-items: center;
     flex-wrap: wrap;
