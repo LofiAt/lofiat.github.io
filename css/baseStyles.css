@@ -1462,3 +1462,17 @@
 /* #musicIconSvg, #notesIconSvg, #quoteIconSvg, #spacesIconSvg, #soundsIconSvg, #timerIconSvg {
     stroke: #fff;
 }*/
+
+::-webkit-resizer {
+    display: none;
+}
+  
+.resize-widget-corner {
+    position: absolute;
+    fill: #fff;
+    width: fit-content;
+    bottom: 0px;
+    right: 0px;
+    z-index: 1;
+    pointer-events: none;
+}
