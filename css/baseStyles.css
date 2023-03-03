@@ -775,6 +775,7 @@
 #popUpPlayListHeader {
     font-size: 18px;
     display: flex;
+    font-weight: bold;
     padding: 12px;
 }
 
@@ -842,7 +843,7 @@
     display: flex;
     width: 100%;
     justify-content: flex-end;
-    gap: 15px;
+    gap: 12px;
     padding: 30px 0;
     overflow-y: scroll;
     text-align: center;
@@ -1185,7 +1186,7 @@
 }
 
 .favouriteSpaceWrapper:hover .spacesNameInList {
-    width: 225px;
+    width: 225px !important;
     background-color: #424345;
 }
 
@@ -1198,6 +1199,7 @@
     width: 28px;
     cursor: grab;
     display: none;
+    float: left;
     overflow: hidden;
     justify-content: center;
     align-items: center;
