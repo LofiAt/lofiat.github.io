@@ -1119,7 +1119,8 @@
 }
 
 .carouselRow {
-    width: 446px;
+    width: 512px;
+    display: flex;
 }
 
 [draggable=true] {
