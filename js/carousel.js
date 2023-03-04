@@ -3,5 +3,5 @@ function moveCarouselLeft() {
 }
 
 function moveCarouselRight() {
-    document.getElementById("spacesCategoriesCarousel").scrollTo(180,0);
+    document.getElementById("spacesCategoriesCarousel").scrollTo(244,0);
 }
