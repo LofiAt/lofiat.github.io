@@ -122,6 +122,21 @@ var windows = [
   ['You\'re in Toronto','bLAzpxidPN0','@Just Windows']
 ];
 
+var synthwave = [
+  ['Electric Mixtape I','k3WkJq478To','@Dr.Bonkers Inc'],
+  ['Night Drive','QAhvvQQurw4','@vexulus'],
+  ['Galactic Waves','gj8AkNynwWs','@Chill Pulse Music'],
+  ['Miami Vice','k8nHWwO1U2Q','@White Bat Audio'],
+  ['Cyberpunk Mixtape','y2ECgOhoDGs','MrSuicideSheep']
+];
+
+var transport = [
+  ['Train Ride Ambience','Cec4Z-Vlf7Q','@Calmed By Nature'],
+  ['Takeoff & Landing','_NL7Pk9EqDg','@Flavas of Chill'],
+  ['City Traffic Sounds','fh3EdeGNKus','@Nomadic Ambience'],
+  ['Busan to Seoul','nABR88G_2cE','@RideScapes']
+];
+
 function getVideoInformation(arrayName) {
   i = i + 1;
   i = i % arrayName.length;
@@ -134,7 +149,7 @@ function getVideoInformation(arrayName) {
   setHeartIfLiked(arrayName[i][1]);
 }
 
-var myArray = [study,space,mystery,windows,code,beach,celebrity,snow,walk,art,cafe,pets,city,games]
+var myArray = [study,space,mystery,windows,code,beach,celebrity,snow,walk,art,cafe,pets,city,games,synthwave,transport]
 
 function playRandomVideo() {
   var randomItem = myArray[Math.floor(Math.random() * myArray.length)];
@@ -303,6 +318,12 @@ function checkGroup(spaceGroup) {
   }
   else if (spaceGroup == pets) {
     return "https://em-content.zobj.net/thumbs/160/apple/325/cat_1f408.png";
+  }
+  else if (spaceGroup == transport) {
+    return "https://em-content.zobj.net/thumbs/120/apple/325/bullet-train_1f685.png";
+  }
+  else if (spaceGroup == synthwave) {
+    return "https://em-content.zobj.net/thumbs/160/apple/325/videocassette_1f4fc.png";
   }
   else {
     return "https://em-content.zobj.net/thumbs/120/apple/325/prohibited_1f6ab.png";
