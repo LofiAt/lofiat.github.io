@@ -99,7 +99,7 @@ var art = [
   ['Lofi Art Beats','rb7D_TZXr6M','@Crockd'],
   ['3 AM Drawing Sesion','eZgF3gVrq7I','@amyeuu'],
   ['Forest Window View','gyvzdEXgNJw','@Framic window views'],
-  ['You\'re in Toronto','bLAzpxidPN0','@Just Windows']
+  ['You are in Toronto','bLAzpxidPN0','@Just Windows']
 ];
 
 var pets = [
@@ -119,7 +119,7 @@ var windows = [
   ['Tropical Storm','iLs04Z6uBqU','@Relaxation Windows'],
   ['Los Angeles Bay View','b4ng8YGmSS4','@Opticstream360'],
   ['Forest Window View','gyvzdEXgNJw','@Framic window views'],
-  ['You\'re in Toronto','bLAzpxidPN0','@Just Windows']
+  ['You are in Toronto','bLAzpxidPN0','@Just Windows']
 ];
 
 var synthwave = [
