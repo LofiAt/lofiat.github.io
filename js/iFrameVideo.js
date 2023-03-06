@@ -55,9 +55,9 @@ var mystery = [
 
 var cafe = [
   ['Sarutahiko coffee','qMHbh6XmgwM','@Jun\'s Cafe Stroll'],
-  ['Study - KharmaMedic','fJP7c8xt1n4','@StudyMD'],
-  ['Study with Sebastian','CPIi6JEUufU','@StudyMD'],
-  ['Study with Abao','grBFMP3HDZA','@StudyMD']
+  ['Alartz Flower cafe','PDDkze546nQ','@Jun\'s Cafe Stroll'],
+  ['Working In A Cafe','sUOTOHCVGGk','@Laura Angelia'],
+  ['Cozy London Cafe','f04PCERA3Y0','@Living Walks']
 ];
 
 var games = [
@@ -86,6 +86,7 @@ var walk = [
   ['Zermatt Switzerland','LFOx-vmYrts','@Nomadic Ambience'],
   ['Walk in Nature Bordeaux','hzz7U-2h17w','@The Relaxed Walker'],
   ['Heavy Rainstorm in NYC','uMnGzVPUEB4','@Nomadic Ambience'],
+  ['Walking from 59th St','BJRZAtoIuMk','@Walking On The Street']
 ];
 
 var city = [
@@ -137,6 +138,37 @@ var transport = [
   ['Busan to Seoul','nABR88G_2cE','@RideScapes']
 ];
 
+var lofi = [
+  ['Chill Drive','25BkVBgFD9Y','@chilli music'],
+  ['Springtime','rRVOEuCz4Xg','@Stomp\'s Playlist'],
+  ['Last Day On Earth','uLKAkcDnYnA','@the bootleg boy'],
+  ['Best of sound for 2023','1t1ttvZojvM','@sound for relax'],
+  ['5AM In Tokyo','liHgt4CbodY','@Stay See'],
+  ['Chill Lo-fi Beats','rVWgZIV6Kbs','@SCDD beats']
+];
+
+var nature = [
+  ['Calm Mountain','CoQtaW0BpDY','@Nature zilla'],
+  ['Mt. Shuksan','G-Vsi6N6r9A','@4K Relaxation Channel'],
+  ['Forest 4K','RzVvThhjAKw','@Relaxation Film'],
+  ['Relaxing Nature Sounds','eKFTSSKCzWA','@johnnielawson'],
+  ['Relaxing Meadow','ipf7ifVSeDU','@Calmed By Nature']
+];
+
+var library = [
+  ['Study At The Library','RfpJdYX-eMw','@Study With Antonio'],
+  ['University Library','wKW6YqxpzFE','@MarkStudy'],
+  ['Library Ambience','JiSfKWB_Vd0','@cosm asmr']
+];
+
+var anime = [
+  ['Cherry Blossom','5wRWniH7rt8','@The Jazz Hop Café'],
+  ['Raining In Osaka','q55qNEKQLG0','@Lofi Music'],
+  ['Studio Ghibli Playlist','PHklnuOvxfg','@Wow Annie'],
+  ['Naruto Lofi','YUCxh4SqPJI','@Chill Out & Lofi Music'],
+  ['Morning Walks','TGan48YE9Us','@The Jazz Hop Café']
+];
+
 function getVideoInformation(arrayName) {
   i = i + 1;
   i = i % arrayName.length;
@@ -149,7 +181,7 @@ function getVideoInformation(arrayName) {
   setHeartIfLiked(arrayName[i][1]);
 }
 
-var myArray = [study,space,mystery,windows,code,beach,celebrity,snow,walk,art,cafe,pets,city,games,synthwave,transport]
+var myArray = [study,space,mystery,windows,code,beach,celebrity,snow,walk,art,cafe,pets,city,games,synthwave,transport,anime,library,nature,lofi]
 
 function playRandomVideo() {
   var randomItem = myArray[Math.floor(Math.random() * myArray.length)];
@@ -324,6 +356,18 @@ function checkGroup(spaceGroup) {
   }
   else if (spaceGroup == synthwave) {
     return "https://em-content.zobj.net/thumbs/160/apple/325/videocassette_1f4fc.png";
+  }
+  else if (spaceGroup == anime) {
+    return "https://em-content.zobj.net/thumbs/120/apple/325/mountain_26f0-fe0f.png";
+  }
+  else if (spaceGroup == library) {
+    return "https://em-content.zobj.net/thumbs/120/apple/325/books_1f4da.png";
+  }
+  else if (spaceGroup == nature) {
+    return "https://em-content.zobj.net/thumbs/120/apple/325/steaming-bowl_1f35c.png";
+  }
+  else if (spaceGroup == lofi) {
+    return "https://em-content.zobj.net/thumbs/120/apple/325/crystal-ball_1f52e.png";
   }
   else {
     return "https://em-content.zobj.net/thumbs/120/apple/325/prohibited_1f6ab.png";
