@@ -357,13 +357,13 @@ function checkGroup(spaceGroup) {
   else if (spaceGroup == synthwave) {
     return "https://em-content.zobj.net/thumbs/160/apple/325/videocassette_1f4fc.png";
   }
-  else if (spaceGroup == anime) {
+  else if (spaceGroup == nature) {
     return "https://em-content.zobj.net/thumbs/120/apple/325/mountain_26f0-fe0f.png";
   }
   else if (spaceGroup == library) {
     return "https://em-content.zobj.net/thumbs/120/apple/325/books_1f4da.png";
   }
-  else if (spaceGroup == nature) {
+  else if (spaceGroup == anime) {
     return "https://em-content.zobj.net/thumbs/120/apple/325/steaming-bowl_1f35c.png";
   }
   else if (spaceGroup == lofi) {
